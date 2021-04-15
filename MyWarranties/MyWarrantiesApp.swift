@@ -17,6 +17,24 @@ struct MyWarrantiesApp: App {
         let dataController = DataController()
         _dataController = StateObject(wrappedValue: dataController)
         
+//        UITabBar.appearance().isTranslucent = false
+////        UITabBar.appearance().backgroundColor = UIColor(named: "tabbarColor")
+//        UITabBar.appearance().barTintColor = UIColor.white // UIColor(named: "tabbarColor")
+//        UITabBar.appearance().selectedItem?.badgeColor = .white
+//        
+//        
+//        UINavigationBar.appearance().isTranslucent = false
+//        UINavigationBar.appearance().barTintColor = UIColor.white // UIColor(named: "tabbarColor")
+//        UINavigationBar.appearance().backgroundColor = UIColor(named: "tabbarColor")
+//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white] //[.foregroundColor: UIColor(named: "tabbarColor") ?? UIColor.white]
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "tabbarColor")]         //Use this if NavigationBarTitle is with displayMode = .inline
+//        
+//        UITableView.appearance().backgroundColor =  UIColor.clear // UIColor(named: "tabbarColor")
+//        UITableView.appearance().separatorStyle = .none
+//        
+//        UITableViewCell.appearance().backgroundColor = UIColor(named: "tabbarColor")
+//        UITableViewCell.appearance().selectionStyle = .none
+        
     }
     
 

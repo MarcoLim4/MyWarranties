@@ -35,6 +35,14 @@ struct WarrantyEditView: View {
     @State private var warrantType: String
     @State private var warrantyLength: Int16
     @State private var warrantyExpiryDate: Date
+    @State private var warrantyCoverage: String
+    
+    @State private var extendedWarranty: Bool
+    @State private var extendedWarrantyCost: Double
+    @State private var extendedWarrantyExpiryDate: Date
+    @State private var extendedWarrantyCoverage: String
+    
+    @State private var comments: String
     
     init(product: Products) {
         
@@ -44,16 +52,23 @@ struct WarrantyEditView: View {
         _productBrand = State(wrappedValue: product.productBrand ?? "")
         _retailerName = State(wrappedValue: product.retailerName ?? "")
         _productPurchValue = State(wrappedValue: product.productPurchasedValue)
-        _purchaseDate = State(wrappedValue: product.datePurchased ?? Date())
+        _purchaseDate = State(wrappedValue: product.productPurchasedDate ?? Date())
         _productSerial = State(wrappedValue: product.productSerial ?? "")
+        
         
         _warrantType = State(wrappedValue: product.warrantyType ?? "")
         _warrantyLength = State(wrappedValue: product.warrantyLength )
         _warrantyExpiryDate = State(wrappedValue: product.warrantyExpiryDate ?? Date())
+        _warrantyCoverage = State(wrappedValue: product.warrantyCoverage ?? "")
         
+        _extendedWarranty = State(wrappedValue: product.extendedWarranty)
+        _extendedWarrantyCost = State(wrappedValue: product.extendedWarrantyCost)
+        _extendedWarrantyExpiryDate = State(wrappedValue: product.extendedWarrantyExpiryDate ?? Date())
+        _extendedWarrantyCoverage = State(wrappedValue: product.extendedWarrantyCoverage ?? "")
+        
+        _comments = State(wrappedValue: product.comments ?? "")
         
     }
-    
     
     
     var body: some View {
@@ -73,7 +88,7 @@ struct WarrantyEditView: View {
                 
                 HStack {
                     
-                    Text("Product Band")
+                    Text("Product Brand")
                         .font(.caption)
                         .foregroundColor(.gray)
 
@@ -117,10 +132,20 @@ struct WarrantyEditView: View {
                 }
 
                 
+                HStack {
+                    Text("Purchase Value")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                    
+                    NumberEntryField(value: self.$productPurchValue.onChange(update))
+                        .font(.callout)
+                        .keyboardType(.decimalPad)
+                                            
+                }
+                
             }
             
             Section(header: Text("Warranty Details")) {
-
                 
                 HStack {
                     Text("Warranty Type")
@@ -130,8 +155,19 @@ struct WarrantyEditView: View {
                     TextField("Warranty Type", text: $warrantType.onChange(update))
                         .font(.callout)
                     
-                    // Not sure what to do here... Maybe someyhing like.. Limited, Parts Only, Unlimmited, etc...
                 }
+
+                HStack {
+                    Text("Warranty Coverage")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                    
+                    TextField("Warranty Coverage", text: $warrantyCoverage.onChange(update))
+                        .font(.callout)
+                    
+                }
+
+                
                 
                 HStack(alignment: .center) {
                     Text("Expiry Date")
@@ -147,6 +183,56 @@ struct WarrantyEditView: View {
                         
                 }
 
+            }
+            
+            Toggle("Extended Warranty", isOn: $extendedWarranty.animation())
+            
+            
+            
+            if extendedWarranty {
+                
+                Section(header: Text("Extended Warranty").textCase(.none) ) {
+                 
+                    HStack {
+                        Text("Cost")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                        NumberEntryField(value: self.$extendedWarrantyCost.onChange(update))
+                            .font(.callout)
+                            .keyboardType(.decimalPad)
+                                                
+                    }
+                    
+                    HStack(alignment: .center) {
+                        Text("Expiry Date")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+
+                        Spacer()
+
+                        DatePicker("Select Date", selection: $extendedWarrantyExpiryDate, displayedComponents: .date)
+                            .labelsHidden()
+                            .datePickerStyle(CompactDatePickerStyle())
+                            .frame(maxHeight: 400)
+                            
+                    }
+                    
+                    HStack {
+                        Text("Warranty Coverage")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                        
+                        TextField("Warranty Coverage", text: $extendedWarrantyCoverage.onChange(update))
+                            .font(.callout)
+                        
+                    }
+
+
+
+                    
+                }
+                
             }
             
             
@@ -200,6 +286,18 @@ struct WarrantyEditView: View {
             .font(.headline)
             
             
+            Section(header: Text("Comments")) {
+
+                TextEditor(text: $comments.onChange(update))
+                    .font(.callout)
+                    .frame(minHeight: 100)
+                    .multilineTextAlignment(.leading)
+
+            }
+//            .listRowBackground(Color("TabView"))
+            .textCase(.none)
+            .font(.headline)
+            
             Section {
 
                 Button(action: {
@@ -245,25 +343,30 @@ struct WarrantyEditView: View {
             
             
         }
-        .navigationTitle("Edit Product")
-        .onDisappear(perform: dataController.save)
-
+        .navigationBarTitle("Edit Product", displayMode: .automatic)
+        .onDisappear(perform: update)
         
     }
     
     
     func update() {
         
-        product.productName  = productName
-        product.productBrand = productBrand
-        product.retailerName = retailerName
-        product.productPurchasedValue = productPurchValue
-        product.datePurchased = purchaseDate
-        product.productSerial = productSerial
+        product.productName                = productName
+        product.productBrand               = productBrand
+        product.retailerName               = retailerName
+        product.productPurchasedValue      = productPurchValue
+        product.productPurchasedDate       = purchaseDate
+        product.productSerial              = productSerial
+        product.warrantyType               = warrantType
+        product.warrantyLength             = Int16(warrantyLength)
+        product.warrantyExpiryDate         = warrantyExpiryDate
+        product.warrantyCoverage           = warrantyCoverage
+        product.extendedWarranty           = extendedWarranty
+        product.extendedWarrantyCoverage   = extendedWarrantyCoverage
+        product.extendedWarrantyCost       = extendedWarrantyCost
+        product.extendedWarrantyExpiryDate = extendedWarrantyExpiryDate
         
-        product.warrantyType = warrantType
-        product.warrantyLength = Int16(warrantyLength)
-        product.warrantyExpiryDate = warrantyExpiryDate
+        product.comments = comments
         
     }
     

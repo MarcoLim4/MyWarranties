@@ -16,8 +16,8 @@ extension WarrantiesView {
             self.dataController = dataController
             
             let request: NSFetchRequest<Products> = Products.fetchRequest()
-            request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.productName, ascending: true),
-                                       NSSortDescriptor(keyPath: \Products.productBrand, ascending: true)]
+            request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.productName, ascending: false)]//,
+//                                       NSSortDescriptor(keyPath: \Products.productBrand, ascending: true)]
             
             // leaving this here so we can use later if we need to filter somehow
 //            request.predicate = NSPredicate(format: "criteria = filter", argument)
@@ -50,9 +50,9 @@ extension WarrantiesView {
             
             let newProduct = Products(context: dataController.container.viewContext)
             
-            newProduct.productName           = "Product Name"
+            newProduct.productName           = "_Product Name"
             newProduct.productBrand          = "Brand Name"
-            newProduct.datePurchased         = Date()
+            newProduct.productPurchasedDate  = Date()
 
             dataController.save()
 
@@ -61,3 +61,5 @@ extension WarrantiesView {
         
     }
 }
+
+

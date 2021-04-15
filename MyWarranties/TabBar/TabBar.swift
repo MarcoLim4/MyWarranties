@@ -2,7 +2,7 @@ import SwiftUI
 
 struct TabBar: View {
 
-    @State private var current = "Home"
+    @State private var current = "Warranties"
     @EnvironmentObject var dataController: DataController
     
     var body: some View {
@@ -10,7 +10,7 @@ struct TabBar: View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
             
             TabView(selection: $current) {
-                
+
                 DashboardView()
                     .tag("Home")
                 

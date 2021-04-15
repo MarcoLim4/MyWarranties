@@ -46,7 +46,7 @@ class DataController: ObservableObject {
             wItem.productName           = "Washing Machine \(item)"
             wItem.productBrand          = "Brand Name"
             wItem.productSerial         = "0123"
-            wItem.datePurchased         = Date()
+            wItem.productPurchasedDate  = Date()
             wItem.warrantyType          = "Some Type"
             wItem.warrantyLength        = 12  // In months ????
             wItem.setReminder           = true

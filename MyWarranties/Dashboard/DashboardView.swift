@@ -11,23 +11,32 @@ struct DashboardView: View {
     
     var body: some View {
     
-        VStack(alignment: .center) {
 
+        ZStack {
             
-            Text("I'm the Dashboard")
-                .padding()
+            Image("background")
+                .resizable()
+                .ignoresSafeArea(.all)
             
-            Text("Here, we'll show some summary data.")
-                .padding()
-            
-            Text("Also, warranties about to expire, etc!")
-                .padding()
-            
+            VStack(alignment: .center) {
+
+                
+                Text("I'm the Dashboard")
+                    .padding()
+                
+                Text("Here, we'll show some summary data.")
+                    .padding()
+                
+                Text("Also, warranties about to expire, etc!")
+                    .padding()
+                
+                
+            }
+
         }
-        
-        
-        
+            
     }
+    
 }
 
 struct DashboardView_Previews: PreviewProvider {

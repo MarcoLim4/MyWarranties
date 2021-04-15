@@ -25,6 +25,12 @@
 		DD3C2EDF262632540069DAF4 /* ImagesSample.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD3C2EDA262632540069DAF4 /* ImagesSample.xcassets */; };
 		DD3C2EE626263C760069DAF4 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C2EE526263C760069DAF4 /* DateHelper.swift */; };
 		DD3C2EEA26263DAE0069DAF4 /* WarrantyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3C2EE926263DAE0069DAF4 /* WarrantyModel.swift */; };
+		DD57D45E2627551500EC3636 /* WarrantiesViewCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD57D45D2627551500EC3636 /* WarrantiesViewCard.swift */; };
+		DD57D46626276CF700EC3636 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD57D46526276CF700EC3636 /* Colors.xcassets */; };
+		DD88378B2627BB4700E5361E /* NumbersOnlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8837872627BB4700E5361E /* NumbersOnlyView.swift */; };
+		DD88378C2627BB4700E5361E /* NumberEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8837882627BB4700E5361E /* NumberEntryField.swift */; };
+		DD88378D2627BB4700E5361E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8837892627BB4700E5361E /* RatingView.swift */; };
+		DD88378E2627BB4700E5361E /* LifeSpanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88378A2627BB4700E5361E /* LifeSpanView.swift */; };
 		DDBB609E26260B2B0025B63D /* WarrantyDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDBB608E262607030025B63D /* WarrantyDB.xcdatamodeld */; };
 		DDBB60A326261F020025B63D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A226261F020025B63D /* SettingsView.swift */; };
 		DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A7262622960025B63D /* WarrantyEditView.swift */; };
@@ -58,6 +64,12 @@
 		DD3C2EDA262632540069DAF4 /* ImagesSample.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImagesSample.xcassets; sourceTree = "<group>"; };
 		DD3C2EE526263C760069DAF4 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		DD3C2EE926263DAE0069DAF4 /* WarrantyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyModel.swift; sourceTree = "<group>"; };
+		DD57D45D2627551500EC3636 /* WarrantiesViewCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantiesViewCard.swift; sourceTree = "<group>"; };
+		DD57D46526276CF700EC3636 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		DD8837872627BB4700E5361E /* NumbersOnlyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersOnlyView.swift; sourceTree = "<group>"; };
+		DD8837882627BB4700E5361E /* NumberEntryField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberEntryField.swift; sourceTree = "<group>"; };
+		DD8837892627BB4700E5361E /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		DD88378A2627BB4700E5361E /* LifeSpanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeSpanView.swift; sourceTree = "<group>"; };
 		DDBB608F262607030025B63D /* WarrantyDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WarrantyDB.xcdatamodel; sourceTree = "<group>"; };
 		DDBB60A226261F020025B63D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DDBB60A7262622960025B63D /* WarrantyEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyEditView.swift; sourceTree = "<group>"; };
@@ -103,6 +115,7 @@
 		DD16EDF1261CD81800C82408 /* MyWarranties */ = {
 			isa = PBXGroup;
 			children = (
+				DD8837862627BB3700E5361E /* Generic Views */,
 				DDED6C8D2626008600B3BC9D /* MyWarranties.entitlements */,
 				DD16EDF2261CD81800C82408 /* MyWarrantiesApp.swift */,
 				DDBB60A026260CB80025B63D /* TabBar */,
@@ -112,6 +125,7 @@
 				DD3C2ED5262632460069DAF4 /* Images */,
 				DDBB60B32626291C0025B63D /* Settings */,
 				DD16EDF6261CD81800C82408 /* Assets.xcassets */,
+				DD57D46526276CF700EC3636 /* Colors.xcassets */,
 				DD3C2EE426263C690069DAF4 /* Helpers */,
 				DD16EE02261CD86E00C82408 /* Extensions */,
 				DD16EDFB261CD81800C82408 /* Info.plist */,
@@ -162,6 +176,17 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		DD8837862627BB3700E5361E /* Generic Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD88378A2627BB4700E5361E /* LifeSpanView.swift */,
+				DD8837882627BB4700E5361E /* NumberEntryField.swift */,
+				DD8837872627BB4700E5361E /* NumbersOnlyView.swift */,
+				DD8837892627BB4700E5361E /* RatingView.swift */,
+			);
+			path = "Generic Views";
+			sourceTree = "<group>";
+		};
 		DDBB60A026260CB80025B63D /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				DDED6C832625FBF600B3BC9D /* WarrantiesView.swift */,
+				DD57D45D2627551500EC3636 /* WarrantiesViewCard.swift */,
 				DDBB60A7262622960025B63D /* WarrantyEditView.swift */,
 				DD3C2ED2262632060069DAF4 /* WarrantyPhotos.swift */,
 				DD3C2EE926263DAE0069DAF4 /* WarrantyModel.swift */,
@@ -274,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD16EDFA261CD81800C82408 /* Preview Assets.xcassets in Resources */,
+				DD57D46626276CF700EC3636 /* Colors.xcassets in Resources */,
 				DD3C2EDF262632540069DAF4 /* ImagesSample.xcassets in Resources */,
 				DD16EDF7261CD81800C82408 /* Assets.xcassets in Resources */,
 			);
@@ -287,13 +314,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD16EE07261CD8B200C82408 /* Binding-OnChange.swift in Sources */,
+				DD88378E2627BB4700E5361E /* LifeSpanView.swift in Sources */,
 				DD16EE04261CD88D00C82408 /* UIImage+Extension.swift in Sources */,
 				DD3C2EDE262632540069DAF4 /* ImagesAddNew.swift in Sources */,
 				DD3C2ECB262631510069DAF4 /* Number+Extension.swift in Sources */,
 				DD3C2EDD262632540069DAF4 /* ImagePicker.swift in Sources */,
+				DD88378B2627BB4700E5361E /* NumbersOnlyView.swift in Sources */,
+				DD57D45E2627551500EC3636 /* WarrantiesViewCard.swift in Sources */,
 				DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */,
 				DD3C2ECC262631510069DAF4 /* UIColor+Extension.swift in Sources */,
 				DD3C2EEA26263DAE0069DAF4 /* WarrantyModel.swift in Sources */,
+				DD88378C2627BB4700E5361E /* NumberEntryField.swift in Sources */,
 				DDBB60A326261F020025B63D /* SettingsView.swift in Sources */,
 				DD16EDF5261CD81800C82408 /* ContentView.swift in Sources */,
 				DD3C2EDC262632540069DAF4 /* ProductsImagesRow.swift in Sources */,
@@ -310,6 +341,7 @@
 				DDBB60AC262627A00025B63D /* DashboardView.swift in Sources */,
 				DD3C2EE626263C760069DAF4 /* DateHelper.swift in Sources */,
 				DDBB609E26260B2B0025B63D /* WarrantyDB.xcdatamodeld in Sources */,
+				DD88378D2627BB4700E5361E /* RatingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -462,6 +495,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;

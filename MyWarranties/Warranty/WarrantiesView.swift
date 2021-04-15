@@ -26,19 +26,37 @@ struct WarrantiesView: View {
 
                     NavigationLink(destination: WarrantyEditView(product: product)) {
 
+//                        WarrantiesViewCard(product: product)
+                        
+                        
                         VStack(alignment: .leading) {
                             
-                            Text("\(product.productName ?? "")")
-                                .font(.title)
-                            
-                            Text("\(product.productBrand ?? "")")
-                            
-                            
-                            Text("\(product.retailerName ?? "")")
-                            
-                            Text("Purchased on: \(product.datePurchased ?? Date(), formatter: DateHelper.dateFormatLong)")
-                                .font(.footnote)
+                            HStack {
 
+                                Image(systemName: "seal")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .padding()
+                                    .cornerRadius(10)
+                                            .overlay(Circle()
+                                                        .stroke(Color("darkGreen"), lineWidth: 2))
+                                            .shadow(radius: 10)
+
+                                VStack(alignment: .leading) {
+
+                                    Text(product.productName ?? "")
+                                        .font(.system(size: 18))
+                                        .fontWeight(.semibold)
+                                    
+
+                                    Text(product.productBrand ?? "")
+                                        .font(.system(size: 14))
+                                        .fontWeight(.light)
+
+                                }
+
+                            }
+                            .padding(.all, 10)
                         }
 
                         

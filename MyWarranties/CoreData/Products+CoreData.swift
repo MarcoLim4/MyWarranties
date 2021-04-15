@@ -13,6 +13,8 @@ import SwiftUI
 
 extension Products {
     
+    var prodName: String { productName ?? "" }
+    
     
     static var allRecords: [Products] {
         [Products]()
@@ -33,7 +35,7 @@ extension Products {
         
         product.productName           = "Your Product"
         product.productBrand          = "Brand Name"
-        product.datePurchased         = Date()
+        product.productPurchasedDate  = Date()
         
         return product
         
