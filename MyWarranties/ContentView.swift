@@ -1,18 +1,23 @@
 import SwiftUI
 
+// tabs...
+// Image Names...
+var tabs = ["home", "warranty", "settings"]
+
 struct ContentView: View {
     
-    @EnvironmentObject var dataController: DataController
-    
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
-
     var body: some View {
         
-        TabBar()
+        NavigationView{
+            
+            CustomTabView()
+                .navigationTitle("")
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationBarHidden(true)
+        }
         
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -20,3 +25,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+

@@ -19,21 +19,29 @@ struct MyWarrantiesApp: App {
         
 //        UITabBar.appearance().isTranslucent = false
 ////        UITabBar.appearance().backgroundColor = UIColor(named: "tabbarColor")
-//        UITabBar.appearance().barTintColor = UIColor.white // UIColor(named: "tabbarColor")
-//        UITabBar.appearance().selectedItem?.badgeColor = .white
-//        
-//        
+//        UITabBar.appearance().barTintColor = UIColor(Color("orange"))
+//        UITabBar.appearance().selectedItem?.badgeColor = UIColor(Color("orange"))
+////
+//
+//                
 //        UINavigationBar.appearance().isTranslucent = false
-//        UINavigationBar.appearance().barTintColor = UIColor.white // UIColor(named: "tabbarColor")
-//        UINavigationBar.appearance().backgroundColor = UIColor(named: "tabbarColor")
-//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white] //[.foregroundColor: UIColor(named: "tabbarColor") ?? UIColor.white]
-//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "tabbarColor")]         //Use this if NavigationBarTitle is with displayMode = .inline
+//        UINavigationBar.appearance().barTintColor = UIColor(named: "darkGreen")
+//        UINavigationBar.appearance().backgroundColor = UIColor(named: "darkGreen")
+//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+//        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white,
+//                                                            .backgroundColor: UIColor(named: "darkGreen") ?? UIColor.darkGray]
 //        
-//        UITableView.appearance().backgroundColor =  UIColor.clear // UIColor(named: "tabbarColor")
+//
+//        
+////        
+//        UITableView.appearance().backgroundColor =  UIColor(Color("darkGreen")) // UIColor(named: "tabbarColor")
+//        UITableView.appearance().allowsSelection = false
+//        
 //        UITableView.appearance().separatorStyle = .none
-//        
-//        UITableViewCell.appearance().backgroundColor = UIColor(named: "tabbarColor")
+////        
+//        UITableViewCell.appearance().backgroundColor = UIColor(named: "darkGreen")
 //        UITableViewCell.appearance().selectionStyle = .none
+//        UITableViewCell.appearance().selectedBackgroundView = UIView()
         
     }
     

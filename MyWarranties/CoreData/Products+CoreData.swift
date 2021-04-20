@@ -16,6 +16,9 @@ extension Products {
     var prodName: String { productName ?? "" }
     
     
+    var categoryImage: String { productCategoryImage ?? "01-Computer" }
+    
+    
     static var allRecords: [Products] {
         [Products]()
     }
@@ -25,6 +28,15 @@ extension Products {
         // Do any sorting here, if necessary
         return photosArray
     }
+    
+    var warrantyTypes: [String] {
+        let types = ["Appliances", "Electronics", "House Repairs", "Boats", "Bicycles", "Cars", "Sporting Goods"]
+        return types.sorted() + ["Other Services"]  // Sorting all the others and keeping Other Services at the End
+    }
+
+    
+    
+//MARK: Sample Data
     
     static var example: Products {
         

@@ -4,7 +4,7 @@ struct WarrantiesView: View {
     
     @StateObject var viewModel: ViewModel
     
-//    let products: FetchRequest<Products>
+    let colors = ["yellow", "green", "orange", "blue", "cyan", "purple", "pink"]
     
     init(dataController: DataController) {
         
@@ -13,80 +13,116 @@ struct WarrantiesView: View {
         _viewModel = StateObject(wrappedValue: viewModel)
         
     }
-
     
     var body: some View {
         
-        NavigationView {
+        VStack {
             
-            List {
+            VStack {
                 
-                ForEach(viewModel.products) { product in
+                Text("My Warranties")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+//                    .padding(.bottom, 0)
+                    .padding(.top, 20)
+
+                Rectangle()
+                    .frame(height: 0.5)
+                    .foregroundColor(.lightGray)
+                    .padding(.bottom, 0)
                 
-
-                    NavigationLink(destination: WarrantyEditView(product: product)) {
-
-//                        WarrantiesViewCard(product: product)
+            }
+            .frame(height: 30)
+            .padding(.bottom, 30)
+            .shadow(color: Color.black.opacity(0.08), radius: 5, x: 5, y: 5)
+            
+            ScrollView(.vertical, showsIndicators: true) {
+                
+                VStack(alignment: .leading) {
+                                        
+                    ForEach(viewModel.products) { product in
                         
-                        
-                        VStack(alignment: .leading) {
-                            
-                            HStack {
+                        NavigationLink(destination: WarrantyEditView(product: product)) {
 
-                                Image(systemName: "seal")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .padding()
-                                    .cornerRadius(10)
-                                            .overlay(Circle()
-                                                        .stroke(Color("darkGreen"), lineWidth: 2))
-                                            .shadow(radius: 10)
+                            ZStack(alignment: .leading) {
+                                
+                                HStack(alignment: .center, spacing: 10) {
 
-                                VStack(alignment: .leading) {
+                                    Image(product.categoryImage)
+                                        .resizable()
+                                        .renderingMode(.template)
+                                        .foregroundColor(Color("fontTitle"))
+                                        .frame(width: 30, height: 30)
+                                        .padding()
+                                        .cornerRadius(10)
+                                                .overlay(Circle()
+                                                            .stroke(Color("officialGreen"), lineWidth: 2))
+//                                                            .stroke(Color(colors.randomElement() ?? "darkGreen"), lineWidth: 2))
+                                                .shadow(radius: 10)
 
-                                    Text(product.productName ?? "")
-                                        .font(.system(size: 18))
-                                        .fontWeight(.semibold)
+                                    VStack(alignment: .leading) {
+
+                                        Text(product.productName ?? "")
+                                            .font(.callout)
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(Color("fontTitle"))
+                                        
+
+                                        Text(product.productBrand ?? "")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.light)
+                                            .foregroundColor(Color("fontTitle"))
+
+                                    }
                                     
-
-                                    Text(product.productBrand ?? "")
-                                        .font(.system(size: 14))
-                                        .fontWeight(.light)
+                                    Spacer()
 
                                 }
+                                .frame(maxWidth: .infinity)
+                                .padding([.bottom, .top, .leading, .trailing], 15)
+                                .background(Color("cellBackground").opacity(0.75))
+                                .cornerRadius(20)
+                                .shadow(color: Color.black.opacity(0.08), radius: 5, x: 5, y: 5)
+                                .shadow(color: Color.black.opacity(0.08), radius: 5, x: -5, y: -5)
 
+                                
+//                                Divider()
+                                
                             }
-                            .padding(.all, 10)
-                        }
+//                            .frame(maxWidth: .infinity)
 
+
+                            
+                        }
+                        .padding(.top, 10)
                         
                     }
-
-                    
                     
                 }
-            }
-            .listStyle(InsetGroupedListStyle())
-            .navigationTitle("Products")
-            .toolbar {
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                .padding([.leading, .trailing], 20)
+                .padding(.bottom, 100)
                 
-                Button {
-                    withAnimation {
-                        viewModel.addNewProduct()
-                    }
-                    
-                } label: {
-                    Label("Add New Warranty", systemImage: "plus")
-                }
                 
             }
             
+            
         }
-        .padding(.top, 25)
-//        .background(Color("Background"))
         .onDisappear(perform: viewModel.dataController.save)
-        .navigationViewStyle(StackNavigationViewStyle())
-        .edgesIgnoringSafeArea(.all)
+        
+        
+        
+//        .preferredColorScheme(.light)
+        
+        
+            
+//        }
+////        .preferredColorScheme(.dark)
+//        .accentColor(.white)
+//        .background(Color("darkGreen"))
+//        .onDisappear(perform: viewModel.dataController.save)
+//        .navigationViewStyle(StackNavigationViewStyle())
+//        .edgesIgnoringSafeArea(.all)
         
     }
     

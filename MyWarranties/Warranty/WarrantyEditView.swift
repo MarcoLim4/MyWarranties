@@ -1,16 +1,20 @@
-//
-//  WarrantyEditView.swift
-//  MyWarranties
-//
-//  Created by Marco Lima on 2021-04-13.
-//
-
 import SwiftUI
 
 struct WarrantyEditView: View {
     
     
     let product: Products
+    
+    let categories = ["01-Computer", "02-Electronics", "03-Computer", "04-Laptop", "06-Phone", "07-TV",
+                      "08-Speaker", "09-Control", "10-Headphones", "11-Microwave", "12-VirtualGogles",
+                      "13-Mic", "14-Speaker", "15-Stove", "16-Washer", "17-Fridge", "18-Microwave",
+                      "19-Radio", "20-HomeTheater", "21-Projector", "22-CoffeMaker", "23-SlowCook",
+                      "25-MiniBlender", "26-Blender", "27-Toaster", "28-Kettle", "29-Camera",
+                      "30-Camera01", "31-VideoRecorder", "32-Games", "33-BlowDryer", "34-Vacuum",
+                      "35-Iron", "36-Drill", "37-Fan", "38-Printer", "39-bicycle", "40-Cars",
+                      "41-SportingGoods", "42-House", "43-Motorcycle", "44-Scooter", "45-Tractor",
+                      "46-Yatch"]
+
     
     @Environment(\.presentationMode) var presentation
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -31,6 +35,7 @@ struct WarrantyEditView: View {
     @State private var productPurchValue: Double
     @State private var purchaseDate: Date
     @State private var productSerial: String
+    @State private var productCategoryImage: String
     
     @State private var warrantType: String
     @State private var warrantyLength: Int16
@@ -54,8 +59,8 @@ struct WarrantyEditView: View {
         _productPurchValue = State(wrappedValue: product.productPurchasedValue)
         _purchaseDate = State(wrappedValue: product.productPurchasedDate ?? Date())
         _productSerial = State(wrappedValue: product.productSerial ?? "")
-        
-        
+        _productCategoryImage = State(wrappedValue: product.productCategoryImage ?? "")
+                
         _warrantType = State(wrappedValue: product.warrantyType ?? "")
         _warrantyLength = State(wrappedValue: product.warrantyLength )
         _warrantyExpiryDate = State(wrappedValue: product.warrantyExpiryDate ?? Date())
@@ -137,23 +142,55 @@ struct WarrantyEditView: View {
                         .font(.caption)
                         .foregroundColor(.gray)
                     
+//                    FormattedTextField("Enter amount",value: productPurchValue, formatter: CurrencyTextFieldFormatter())
+                    
                     NumberEntryField(value: self.$productPurchValue.onChange(update))
                         .font(.callout)
                         .keyboardType(.decimalPad)
+                        
                                             
                 }
                 
+            }
+            .textCase(.none)
+            .font(.headline)
+            
+            Section(header: Text("Product Category") ) {
+
+                HStack {
+
+                    Picker("Category Image", selection: $productCategoryImage) {
+
+                        ForEach(categories, id: \.self) { imageName in
+
+                            Image(imageName)
+                                .resizable()
+                                .renderingMode(.template)
+                                .frame(width: 50, height: 50)
+                            
+                        }
+                        .foregroundColor(.gray)
+
+                    }
+                    .pickerStyle(DefaultPickerStyle())
+
+                }
+
+
             }
             
             Section(header: Text("Warranty Details")) {
                 
                 HStack {
-                    Text("Warranty Type")
-                        .font(.caption)
-                        .foregroundColor(.gray)
                     
-                    TextField("Warranty Type", text: $warrantType.onChange(update))
-                        .font(.callout)
+                    Picker("Warranty Type", selection: $warrantType.onChange(update)) {
+                        
+                        ForEach(product.warrantyTypes, id: \.self) { type in
+                            Text("\(type)")
+                        }
+                        .foregroundColor(.gray)
+                        
+                    }
                     
                 }
 
@@ -184,10 +221,10 @@ struct WarrantyEditView: View {
                 }
 
             }
+            .textCase(.none)
+            .font(.headline)
             
             Toggle("Extended Warranty", isOn: $extendedWarranty.animation())
-            
-            
             
             if extendedWarranty {
                 
@@ -232,6 +269,8 @@ struct WarrantyEditView: View {
 
                     
                 }
+                .textCase(.none)
+                .font(.headline)
                 
             }
             
@@ -281,7 +320,6 @@ struct WarrantyEditView: View {
                 }
 
             }
-//            .listRowBackground(Color("TabView"))
             .textCase(.none)
             .font(.headline)
             
@@ -294,7 +332,6 @@ struct WarrantyEditView: View {
                     .multilineTextAlignment(.leading)
 
             }
-//            .listRowBackground(Color("TabView"))
             .textCase(.none)
             .font(.headline)
             
@@ -332,24 +369,31 @@ struct WarrantyEditView: View {
                 }
 
             }
-//            .listRowBackground(Color("TabView"))
+            .textCase(.none)
+            .font(.headline)
             
             Section {
                 EmptyView()
-//                    .padding(.bottom, 150)
+                    .padding(.bottom, 150)
             }
             .padding(.bottom, 150)
             
             
             
         }
-        .navigationBarTitle("Edit Product", displayMode: .automatic)
-        .onDisappear(perform: update)
+        .navigationBarTitle("Edit Warranty", displayMode: .large)
+
+
         
+ 
     }
     
     
     func update() {
+        
+        product.objectWillChange.send()
+        
+        
         
         product.productName                = productName
         product.productBrand               = productBrand
@@ -357,6 +401,7 @@ struct WarrantyEditView: View {
         product.productPurchasedValue      = productPurchValue
         product.productPurchasedDate       = purchaseDate
         product.productSerial              = productSerial
+        product.productCategoryImage       = productCategoryImage
         product.warrantyType               = warrantType
         product.warrantyLength             = Int16(warrantyLength)
         product.warrantyExpiryDate         = warrantyExpiryDate

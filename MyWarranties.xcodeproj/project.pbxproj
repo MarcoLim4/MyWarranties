@@ -31,7 +31,11 @@
 		DD88378C2627BB4700E5361E /* NumberEntryField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8837882627BB4700E5361E /* NumberEntryField.swift */; };
 		DD88378D2627BB4700E5361E /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8837892627BB4700E5361E /* RatingView.swift */; };
 		DD88378E2627BB4700E5361E /* LifeSpanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88378A2627BB4700E5361E /* LifeSpanView.swift */; };
-		DDBB609E26260B2B0025B63D /* WarrantyDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDBB608E262607030025B63D /* WarrantyDB.xcdatamodeld */; };
+		DD88379B262A0ACB00E5361E /* PinchToZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD88379A262A0ACB00E5361E /* PinchToZoomView.swift */; };
+		DD8837CB262DE6AE00E5361E /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8837C7262DE6AE00E5361E /* CustomTabView.swift */; };
+		DDA14218262F43750015AF29 /* Icons01.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA14217262F43750015AF29 /* Icons01.xcassets */; };
+		DDA1421B262F5DFC0015AF29 /* Categories.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA1421A262F5DFC0015AF29 /* Categories.xcassets */; };
+		DDA14220262F62240015AF29 /* WarrantyDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDBB608E262607030025B63D /* WarrantyDB.xcdatamodeld */; };
 		DDBB60A326261F020025B63D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A226261F020025B63D /* SettingsView.swift */; };
 		DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A7262622960025B63D /* WarrantyEditView.swift */; };
 		DDBB60AC262627A00025B63D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60AB262627A00025B63D /* DashboardView.swift */; };
@@ -70,6 +74,10 @@
 		DD8837882627BB4700E5361E /* NumberEntryField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberEntryField.swift; sourceTree = "<group>"; };
 		DD8837892627BB4700E5361E /* RatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		DD88378A2627BB4700E5361E /* LifeSpanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeSpanView.swift; sourceTree = "<group>"; };
+		DD88379A262A0ACB00E5361E /* PinchToZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinchToZoomView.swift; sourceTree = "<group>"; };
+		DD8837C7262DE6AE00E5361E /* CustomTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
+		DDA14217262F43750015AF29 /* Icons01.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons01.xcassets; sourceTree = "<group>"; };
+		DDA1421A262F5DFC0015AF29 /* Categories.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Categories.xcassets; sourceTree = "<group>"; };
 		DDBB608F262607030025B63D /* WarrantyDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WarrantyDB.xcdatamodel; sourceTree = "<group>"; };
 		DDBB60A226261F020025B63D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DDBB60A7262622960025B63D /* WarrantyEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyEditView.swift; sourceTree = "<group>"; };
@@ -115,17 +123,19 @@
 		DD16EDF1261CD81800C82408 /* MyWarranties */ = {
 			isa = PBXGroup;
 			children = (
-				DD8837862627BB3700E5361E /* Generic Views */,
 				DDED6C8D2626008600B3BC9D /* MyWarranties.entitlements */,
 				DD16EDF2261CD81800C82408 /* MyWarrantiesApp.swift */,
-				DDBB60A026260CB80025B63D /* TabBar */,
 				DD16EDF4261CD81800C82408 /* ContentView.swift */,
+				DD8837862627BB3700E5361E /* Generic Views */,
+				DDBB60A026260CB80025B63D /* TabBar */,
 				DDBB60B1262629140025B63D /* Dashboard */,
 				DDBB60AF2626290A0025B63D /* Warranty */,
 				DD3C2ED5262632460069DAF4 /* Images */,
 				DDBB60B32626291C0025B63D /* Settings */,
 				DD16EDF6261CD81800C82408 /* Assets.xcassets */,
 				DD57D46526276CF700EC3636 /* Colors.xcassets */,
+				DDA14217262F43750015AF29 /* Icons01.xcassets */,
+				DDA1421A262F5DFC0015AF29 /* Categories.xcassets */,
 				DD3C2EE426263C690069DAF4 /* Helpers */,
 				DD16EE02261CD86E00C82408 /* Extensions */,
 				DD16EDFB261CD81800C82408 /* Info.plist */,
@@ -164,6 +174,7 @@
 				DD3C2ED6262632540069DAF4 /* ImagesShowImageView.swift */,
 				DD3C2ED7262632540069DAF4 /* ProductsImagesRow.swift */,
 				DD3C2EDA262632540069DAF4 /* ImagesSample.xcassets */,
+				DD88379A262A0ACB00E5361E /* PinchToZoomView.swift */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -191,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				DDED6C7A2625F74F00B3BC9D /* TabBar.swift */,
+				DD8837C7262DE6AE00E5361E /* CustomTabView.swift */,
 				DDED6C802625F99800B3BC9D /* TabButton.swift */,
 			);
 			path = TabBar;
@@ -299,10 +311,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA14218262F43750015AF29 /* Icons01.xcassets in Resources */,
 				DD16EDFA261CD81800C82408 /* Preview Assets.xcassets in Resources */,
 				DD57D46626276CF700EC3636 /* Colors.xcassets in Resources */,
 				DD3C2EDF262632540069DAF4 /* ImagesSample.xcassets in Resources */,
 				DD16EDF7261CD81800C82408 /* Assets.xcassets in Resources */,
+				DDA1421B262F5DFC0015AF29 /* Categories.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,15 +347,17 @@
 				DD3C2ED3262632060069DAF4 /* WarrantyPhotos.swift in Sources */,
 				DD3C2EC4262631390069DAF4 /* Bundle-Decodable.swift in Sources */,
 				DDED6C692625E0EB00B3BC9D /* DataController.swift in Sources */,
+				DDA14220262F62240015AF29 /* WarrantyDB.xcdatamodeld in Sources */,
 				DDED6C842625FBF600B3BC9D /* WarrantiesView.swift in Sources */,
 				DDED6C812625F99800B3BC9D /* TabButton.swift in Sources */,
 				DD16EDF3261CD81800C82408 /* MyWarrantiesApp.swift in Sources */,
 				DDED6C892625FC8700B3BC9D /* Products+CoreData.swift in Sources */,
 				DDED6C7B2625F74F00B3BC9D /* TabBar.swift in Sources */,
 				DDBB60AC262627A00025B63D /* DashboardView.swift in Sources */,
+				DD8837CB262DE6AE00E5361E /* CustomTabView.swift in Sources */,
 				DD3C2EE626263C760069DAF4 /* DateHelper.swift in Sources */,
-				DDBB609E26260B2B0025B63D /* WarrantyDB.xcdatamodeld in Sources */,
 				DD88378D2627BB4700E5361E /* RatingView.swift in Sources */,
+				DD88379B262A0ACB00E5361E /* PinchToZoomView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

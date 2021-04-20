@@ -25,7 +25,7 @@ struct WarrantyPhotos: View {
                         Image(uiImage: instPhoto ?? UIImage())
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 80.0, height: 80.0, alignment: .center)
+                            .frame(width: 80.0, height: 120.0, alignment: .center)
                             .clipShape(Circle())
                             .shadow(radius: 8)
 

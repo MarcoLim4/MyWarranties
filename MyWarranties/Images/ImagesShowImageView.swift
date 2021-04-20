@@ -3,6 +3,8 @@ import SwiftUI
 struct ImagesShowImageView: View {
 
     let photo: Photos
+    
+    @State var lastScaleValue: CGFloat = 1.0
 
     @Environment(\.managedObjectContext) var managedObjectContext
     @EnvironmentObject var dataController: DataController
@@ -36,13 +38,6 @@ struct ImagesShowImageView: View {
                        alignment: .trailing)
                 .padding(.trailing, 15)
 
-//                Rectangle()
-//                    .frame(width: 180, height: 5, alignment: .center)
-//                    .foregroundColor(.gray)
-//                    .cornerRadius(3.0)
-//                    .padding(.top, 15)
-//                    .shadow(radius: 10)
-
             }
 
             let instPhoto = UIImage(data: photo.itemPhoto ?? Data()) ?? UIImage(named: "image05.png")
@@ -53,6 +48,8 @@ struct ImagesShowImageView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .padding(.top, 10)
+                .pinchToZoom()
+
 
             Spacer()
 

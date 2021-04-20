@@ -53,12 +53,12 @@ extension WarrantiesView {
             newProduct.productName           = "_Product Name"
             newProduct.productBrand          = "Brand Name"
             newProduct.productPurchasedDate  = Date()
+            newProduct.productCategoryImage  = "01-Computer"
 
             dataController.save()
 
         }
-        
-        
+                
     }
 }
 
