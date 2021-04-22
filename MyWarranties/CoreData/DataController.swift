@@ -39,7 +39,6 @@ class DataController: ObservableObject {
         let viewContext = container.viewContext
         
         for item in 1...2 {
-            
 
             let wItem = Products(context: viewContext)
             

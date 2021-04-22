@@ -18,7 +18,7 @@ struct MyWarrantiesApp: App {
         _dataController = StateObject(wrappedValue: dataController)
         
 //        UITabBar.appearance().isTranslucent = false
-////        UITabBar.appearance().backgroundColor = UIColor(named: "tabbarColor")
+//        UITabBar.appearance().backgroundColor = UIColor(named: "darkGreen")
 //        UITabBar.appearance().barTintColor = UIColor(Color("orange"))
 //        UITabBar.appearance().selectedItem?.badgeColor = UIColor(Color("orange"))
 ////
@@ -27,7 +27,7 @@ struct MyWarrantiesApp: App {
 //        UINavigationBar.appearance().isTranslucent = false
 //        UINavigationBar.appearance().barTintColor = UIColor(named: "darkGreen")
 //        UINavigationBar.appearance().backgroundColor = UIColor(named: "darkGreen")
-//        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(named: "officialGreen") ?? Color.green]
 //        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white,
 //                                                            .backgroundColor: UIColor(named: "darkGreen") ?? UIColor.darkGray]
 //        

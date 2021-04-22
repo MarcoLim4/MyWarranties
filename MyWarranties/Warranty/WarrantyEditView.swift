@@ -4,6 +4,7 @@ struct WarrantyEditView: View {
     
     
     let product: Products
+    let viewModel: WarrantiesView.ViewModel
     
     let categories = ["01-Computer", "02-Electronics", "03-Computer", "04-Laptop", "06-Phone", "07-TV",
                       "08-Speaker", "09-Control", "10-Headphones", "11-Microwave", "12-VirtualGogles",
@@ -49,9 +50,10 @@ struct WarrantyEditView: View {
     
     @State private var comments: String
     
-    init(product: Products) {
+    init(product: Products, viewModel: WarrantiesView.ViewModel) {
         
-        self.product = product
+        self.product   = product
+        self.viewModel = viewModel
         
         _productName  = State(wrappedValue: product.productName ?? "")
         _productBrand = State(wrappedValue: product.productBrand ?? "")
@@ -360,6 +362,7 @@ struct WarrantyEditView: View {
                         primaryButton: .destructive(Text("Yes, delete it!")) {
 
                             dataController.delete(product)
+                            viewModel.refreshFetch()
                             self.presentation.wrappedValue.dismiss()
 
                         },
@@ -392,8 +395,6 @@ struct WarrantyEditView: View {
     func update() {
         
         product.objectWillChange.send()
-        
-        
         
         product.productName                = productName
         product.productBrand               = productBrand
@@ -442,8 +443,8 @@ struct WarrantyEditView: View {
     }
 }
 
-struct WarrantyEditView_Previews: PreviewProvider {
-    static var previews: some View {
-        WarrantyEditView(product: Products.example)
-    }
-}
+//struct WarrantyEditView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        WarrantyEditView(product: Products.example, viewModel: WarrantiesView.ViewModel)
+//    }
+//}

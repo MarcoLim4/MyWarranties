@@ -9,7 +9,11 @@ extension WarrantiesView {
         let dataController: DataController
         
         private let productsController: NSFetchedResultsController<Products>
+        
         @Published var products = [Products]()
+        @Published var filteredProducts: [Products] = []
+        @Published var searchText = ""
+
         
         init(dataController: DataController) {
             
@@ -32,6 +36,7 @@ extension WarrantiesView {
             do {
                 try productsController.performFetch()
                 products = productsController.fetchedObjects ?? []
+                filteredProducts = products
             } catch {
                 print("Error fetching products!!")
             }
@@ -56,8 +61,48 @@ extension WarrantiesView {
             newProduct.productCategoryImage  = "01-Computer"
 
             dataController.save()
+            
+            refreshFetch()
+            
+        }
+        
+        func refreshFetch() {
+            
+            do {
+                try productsController.performFetch()
+                products = productsController.fetchedObjects ?? []
+                filteredProducts = products
+            } catch {
+                print("Error fetching products!!")
+            }
 
         }
+        
+        func filterContent() {
+            
+            let lowercasedSearchText = searchText.lowercased()
+            
+            if searchText.count > 0 {
+                
+                var matchingProducts: [Products] = []
+
+                products.forEach { product in
+                    
+                    // for now, sarching only on prod Name
+                    let searchContent = product.prodName
+                    
+                    if searchContent.lowercased().range(of: lowercasedSearchText, options: .regularExpression) != nil {
+                        matchingProducts.append(product)
+                    }
+                }
+
+                filteredProducts = matchingProducts
+
+            } else {
+                filteredProducts = products
+            }
+        }
+
                 
     }
 }

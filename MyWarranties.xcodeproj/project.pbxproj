@@ -39,6 +39,9 @@
 		DDBB60A326261F020025B63D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A226261F020025B63D /* SettingsView.swift */; };
 		DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A7262622960025B63D /* WarrantyEditView.swift */; };
 		DDBB60AC262627A00025B63D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60AB262627A00025B63D /* DashboardView.swift */; };
+		DDCFFAEA2630A0A800FFD5FE /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCFFAE92630A0A800FFD5FE /* DashboardModel.swift */; };
+		DDDF56092630AA24007D9E82 /* CardAllItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF56082630AA24007D9E82 /* CardAllItems.swift */; };
+		DDDF560C2630AAB9007D9E82 /* CardExtendedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF560B2630AAB9007D9E82 /* CardExtendedItems.swift */; };
 		DDED6C692625E0EB00B3BC9D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED6C682625E0EB00B3BC9D /* DataController.swift */; };
 		DDED6C7B2625F74F00B3BC9D /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED6C7A2625F74F00B3BC9D /* TabBar.swift */; };
 		DDED6C812625F99800B3BC9D /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED6C802625F99800B3BC9D /* TabButton.swift */; };
@@ -82,6 +85,9 @@
 		DDBB60A226261F020025B63D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DDBB60A7262622960025B63D /* WarrantyEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyEditView.swift; sourceTree = "<group>"; };
 		DDBB60AB262627A00025B63D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		DDCFFAE92630A0A800FFD5FE /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		DDDF56082630AA24007D9E82 /* CardAllItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAllItems.swift; sourceTree = "<group>"; };
+		DDDF560B2630AAB9007D9E82 /* CardExtendedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExtendedItems.swift; sourceTree = "<group>"; };
 		DDED6C682625E0EB00B3BC9D /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		DDED6C7A2625F74F00B3BC9D /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DDED6C802625F99800B3BC9D /* TabButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
@@ -224,6 +230,9 @@
 			isa = PBXGroup;
 			children = (
 				DDBB60AB262627A00025B63D /* DashboardView.swift */,
+				DDCFFAE92630A0A800FFD5FE /* DashboardModel.swift */,
+				DDDF56082630AA24007D9E82 /* CardAllItems.swift */,
+				DDDF560B2630AAB9007D9E82 /* CardExtendedItems.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -335,8 +344,10 @@
 				DD3C2EDD262632540069DAF4 /* ImagePicker.swift in Sources */,
 				DD88378B2627BB4700E5361E /* NumbersOnlyView.swift in Sources */,
 				DD57D45E2627551500EC3636 /* WarrantiesViewCard.swift in Sources */,
+				DDCFFAEA2630A0A800FFD5FE /* DashboardModel.swift in Sources */,
 				DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */,
 				DD3C2ECC262631510069DAF4 /* UIColor+Extension.swift in Sources */,
+				DDDF560C2630AAB9007D9E82 /* CardExtendedItems.swift in Sources */,
 				DD3C2EEA26263DAE0069DAF4 /* WarrantyModel.swift in Sources */,
 				DD88378C2627BB4700E5361E /* NumberEntryField.swift in Sources */,
 				DDBB60A326261F020025B63D /* SettingsView.swift in Sources */,
@@ -357,6 +368,7 @@
 				DD8837CB262DE6AE00E5361E /* CustomTabView.swift in Sources */,
 				DD3C2EE626263C760069DAF4 /* DateHelper.swift in Sources */,
 				DD88378D2627BB4700E5361E /* RatingView.swift in Sources */,
+				DDDF56092630AA24007D9E82 /* CardAllItems.swift in Sources */,
 				DD88379B262A0ACB00E5361E /* PinchToZoomView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,7 +499,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -511,7 +523,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
