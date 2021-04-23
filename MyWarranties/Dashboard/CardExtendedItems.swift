@@ -30,7 +30,7 @@ struct CardExtendedItems: View {
                     VStack(alignment: .center) {
 
                         Text("3")
-                            .font(.system(size: 35))
+                            .font(.system(size: 30))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
                         
@@ -48,7 +48,7 @@ struct CardExtendedItems: View {
 
 
                         Text("$ 3,000.00")
-                            .font(.system(size: 35))
+                            .font(.system(size: 30))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
 
@@ -62,9 +62,11 @@ struct CardExtendedItems: View {
                     Spacer()
 
                 }
-                .padding(.all, 10)
-                .background(Color("darkGreen").opacity(0.6))
-                
+                .frame(maxWidth: .infinity)
+                .background(Color("officialGreen").opacity(0.6))
+                .clipShape(Rectangle())
+                .cornerRadius(10)
+                .padding([.horizontal], 20)
 
                 HStack {
                     
@@ -93,15 +95,15 @@ struct CardExtendedItems: View {
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
+                            .padding(.bottom, 10)
 
                     }
-                    
-                    Spacer()
-                    
-                    Divider()
-                        .frame(width: 2, height: 150)
+                    .frame(maxWidth: .infinity)
+                    .background(Color("officialGreen").opacity(0.6))
+                    .clipShape(Rectangle())
+                    .cornerRadius(10)
+                    .padding(.top, 10)
 
-                    
                     Spacer()
                     
                     VStack {
@@ -127,27 +129,43 @@ struct CardExtendedItems: View {
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
+                            .padding(.bottom, 10)
 
                     }
-//                    .background(Color("darkGreen").opacity(0.6))
+                    .frame(maxWidth: .infinity)
+                    .background(Color("officialGreen").opacity(0.6))
+                    .clipShape(Rectangle())
+                    .cornerRadius(10)
+                    .padding(.top, 10)
 
                     Spacer()
                     
                 }
-                .padding(.all, 10)
-                .background(Color("darkGreen").opacity(0.6))
-
+                .padding([.bottom, .horizontal], 10)
+                .padding(.top, 0)
 
 
             }
             
+            Spacer()
+                .frame(height: 10)
+            
             
         }
+        .clipShape(Rectangle())
+        .background(Color("officialGreen").opacity(0.5))
+        .cornerRadius(20)
+        .padding([.horizontal], 10)
+        
     }
 }
 
 struct CardExtendedItems_Previews: PreviewProvider {
     static var previews: some View {
-        CardExtendedItems()
+        Group {
+            CardExtendedItems()
+            CardExtendedItems()
+                .preferredColorScheme(.dark)
+        }
     }
 }

@@ -6,6 +6,8 @@ struct WarrantiesView: View {
     
     @StateObject var viewModel: ViewModel
     
+    @State private var showSearchBar = false
+    
     let colors = ["yellow", "green", "orange", "blue", "cyan", "purple", "pink"]
     
     init(dataController: DataController) {
@@ -25,20 +27,25 @@ struct WarrantiesView: View {
             
             VStack {
                 
-                VStack(alignment: .leading) {
-                    
-                    TextField("Search", text: $viewModel.searchText)
-                        .font(.caption)
-                        .frame(height: 10)
-                        .padding()
-                        .background(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.2662717301)))
-                        .cornerRadius(10)
-                        .onChange(of: viewModel.searchText) { text in
-                            viewModel.filterContent()
-                        }
-                    
+                if viewModel.products.count > 0 && showSearchBar == true {
+
+                    VStack(alignment: .leading) {
+                        
+                        TextField("Search", text: $viewModel.searchText)
+                            .font(.caption)
+                            .frame(height: 10)
+                            .padding()
+                            .background(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.2662717301)))
+                            .cornerRadius(10)
+                            .onChange(of: viewModel.searchText) { text in
+                                viewModel.filterContent()
+                            }
+                        
+                    }
+                    .padding(.horizontal, 10)
+
                 }
-                .padding(.horizontal, 10)
+                
                 
                 
                 List {
@@ -82,43 +89,57 @@ struct WarrantiesView: View {
                                     Spacer()
 
                                 }
-    //                            .frame(maxWidth: .infinity)
-    //                            .padding([.bottom, .top, .leading, .trailing], 15)
-    //                            .background(Color("cellBackground").opacity(0.75))
-    //                            .cornerRadius(20)
-    //                            .shadow(color: Color.black.opacity(0.08), radius: 5, x: 5, y: 5)
-    //                            .shadow(color: Color.black.opacity(0.08), radius: 5, x: -5, y: -5)
                                 
                             }
                             
                         }
                         .padding(.top, 10)
                         
-                    }
+                    }                    
+                    .onDelete(perform: { indexSet in
+                        print(indexSet)
+                    })
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .navigationTitle("My Warranties")
                 .toolbar {
-                                
-                    Button {
-                        withAnimation {
-                            viewModel.searchText = "" // clear search bar just in case
-                            viewModel.addNewProduct()
+                    ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        
+                        if viewModel.products.count > 0 {
+
+                            Button {
+                                withAnimation {
+                                    viewModel.searchText = "" // clear search bar just in case
+                                    showSearchBar.toggle()
+                                }
+                            } label: {
+                                Image(systemName: "magnifyingglass.circle.fill")
+                                    .renderingMode(.template)
+                                    .foregroundColor(Color("officialGreen"))
+                            }
+                            
                         }
-                    } label: {
-                        Image(systemName: "plus.circle.fill")
-                            .renderingMode(.template)
-                            .foregroundColor(Color("officialGreen"))
+                        
+                        Button {
+                            withAnimation {
+                                viewModel.searchText = "" // clear search bar just in case
+                                viewModel.addNewProduct()
+                            }
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .renderingMode(.template)
+                                .foregroundColor(Color("officialGreen"))
+                        }
+
+
                     }
+                    
+                    
                 }
                 
             }
             
-            
-
-
-                
         }
         .onDisappear(perform: viewModel.dataController.save)
         .navigationViewStyle(StackNavigationViewStyle())

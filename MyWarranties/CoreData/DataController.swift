@@ -42,13 +42,13 @@ class DataController: ObservableObject {
 
             let wItem = Products(context: viewContext)
             
+            wItem.productID             = UUID()
             wItem.productName           = "Washing Machine \(item)"
             wItem.productBrand          = "Brand Name"
-            wItem.productSerial         = "0123"
+            wItem.productSerial         = wItem.productID?.uuidString
             wItem.productPurchasedDate  = Date()
             wItem.warrantyType          = "Some Type"
             wItem.warrantyLength        = 12  // In months ????
-            wItem.setReminder           = true
             wItem.productPurchasedValue = 2000
             
             wItem.photos = []
@@ -96,5 +96,16 @@ class DataController: ObservableObject {
         (try? container.viewContext.count(for: fetchRequest)) ?? 0
     }
 
+    func totalProductsCount() -> Int {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Products")
+        do {
+            let count = try container.viewContext.count(for: fetchRequest)
+            return count
+        } catch {
+            return 0
+        }
+        
+    }
     
 }

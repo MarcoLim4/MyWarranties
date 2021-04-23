@@ -55,6 +55,7 @@ extension WarrantiesView {
             
             let newProduct = Products(context: dataController.container.viewContext)
             
+            newProduct.productID             = UUID()
             newProduct.productName           = "_Product Name"
             newProduct.productBrand          = "Brand Name"
             newProduct.productPurchasedDate  = Date()

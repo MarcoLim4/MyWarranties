@@ -7,27 +7,30 @@
     </entity>
     <entity name="Products" representedClassName="Products" syncable="YES" codeGenerationType="class">
         <attribute name="comments" optional="YES" attributeType="String"/>
+        <attribute name="extendedShowRemider" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="extendedWarranty" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="extendedWarrantyCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="extendedWarrantyCoverage" optional="YES" attributeType="String"/>
         <attribute name="extendedWarrantyExpiryDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="productBrand" optional="YES" attributeType="String"/>
         <attribute name="productCategoryImage" optional="YES" attributeType="String"/>
+        <attribute name="productID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="productName" optional="YES" attributeType="String"/>
         <attribute name="productPurchaseAmount" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="productPurchasedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="productPurchasedValue" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="productSerial" optional="YES" attributeType="String"/>
         <attribute name="retailerName" optional="YES" attributeType="String"/>
-        <attribute name="setReminder" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="warrantyCoverage" optional="YES" attributeType="String"/>
         <attribute name="warrantyExpiryDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="warrantyLength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="warrantyReminderID" optional="YES" attributeType="String"/>
+        <attribute name="warrantyShowReminder" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="warrantyType" optional="YES" attributeType="String"/>
         <relationship name="photos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Photos" inverseName="products" inverseEntity="Photos"/>
     </entity>
     <elements>
         <element name="Photos" positionX="18" positionY="135" width="128" height="74"/>
-        <element name="Products" positionX="-27" positionY="18" width="128" height="314"/>
+        <element name="Products" positionX="-27" positionY="18" width="128" height="359"/>
     </elements>
 </model>

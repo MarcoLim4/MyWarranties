@@ -28,6 +28,7 @@ struct WarrantyEditView: View {
     @State private var inputImage: UIImage?
 
     @State private var isShowingDeleteMessage = false
+    @State private var showingNotificationsError = false
 
     // Data
     @State private var productName: String
@@ -41,11 +42,14 @@ struct WarrantyEditView: View {
     @State private var warrantType: String
     @State private var warrantyLength: Int16
     @State private var warrantyExpiryDate: Date
+    @State private var warrantyShowReminder: Bool
+    @State private var warrantyReminderID: String
     @State private var warrantyCoverage: String
     
     @State private var extendedWarranty: Bool
     @State private var extendedWarrantyCost: Double
     @State private var extendedWarrantyExpiryDate: Date
+    @State private var extendedShowReminder: Bool
     @State private var extendedWarrantyCoverage: String
     
     @State private var comments: String
@@ -66,12 +70,15 @@ struct WarrantyEditView: View {
         _warrantType = State(wrappedValue: product.warrantyType ?? "")
         _warrantyLength = State(wrappedValue: product.warrantyLength )
         _warrantyExpiryDate = State(wrappedValue: product.warrantyExpiryDate ?? Date())
+        _warrantyShowReminder = State(wrappedValue: product.warrantyShowReminder)
+        _warrantyReminderID = State(wrappedValue: product.warrantyReminderID ?? "NOID")
         _warrantyCoverage = State(wrappedValue: product.warrantyCoverage ?? "")
-        
+                
         _extendedWarranty = State(wrappedValue: product.extendedWarranty)
         _extendedWarrantyCost = State(wrappedValue: product.extendedWarrantyCost)
         _extendedWarrantyExpiryDate = State(wrappedValue: product.extendedWarrantyExpiryDate ?? Date())
         _extendedWarrantyCoverage = State(wrappedValue: product.extendedWarrantyCoverage ?? "")
+        _extendedShowReminder = State(wrappedValue: product.extendedShowRemider)
         
         _comments = State(wrappedValue: product.comments ?? "")
         
@@ -157,7 +164,10 @@ struct WarrantyEditView: View {
             .textCase(.none)
             .font(.headline)
             
-            Section(header: Text("Product Category") ) {
+            Section(header:
+                        Text("Product Category")
+                        .font(.headline)
+                        .textCase(.none)) {
 
                 HStack {
 
@@ -175,13 +185,17 @@ struct WarrantyEditView: View {
 
                     }
                     .pickerStyle(DefaultPickerStyle())
+                    .font(.footnote)
 
                 }
 
 
             }
             
-            Section(header: Text("Warranty Details")) {
+            Section(header:
+                        Text("Warranty Details")
+                        .textCase(.none)
+                        .font(.headline)) {
                 
                 HStack {
                     
@@ -193,6 +207,8 @@ struct WarrantyEditView: View {
                         .foregroundColor(.gray)
                         
                     }
+                    .font(.footnote)
+                    .foregroundColor(.gray)
                     
                 }
 
@@ -221,16 +237,31 @@ struct WarrantyEditView: View {
                         .frame(maxHeight: 400)
                         
                 }
+                
+                Toggle("Show Reminder", isOn: $warrantyShowReminder.animation())
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                    .alert(isPresented: $showingNotificationsError) {
+                        Alert(
+                            title: Text("Reminded Error"),
+                            message: Text("There was a problem. Please check if you have notifications enabled."),
+                            primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                            secondaryButton: .cancel()
+                        )
+                    }
 
             }
-            .textCase(.none)
-            .font(.headline)
             
             Toggle("Extended Warranty", isOn: $extendedWarranty.animation())
+                .font(.footnote)
+                .foregroundColor(.gray)
             
             if extendedWarranty {
                 
-                Section(header: Text("Extended Warranty").textCase(.none) ) {
+                Section(header:
+                            Text("Extended Warranty")
+                            .textCase(.none)
+                            .font(.headline)) {
                  
                     HStack {
                         Text("Cost")
@@ -257,6 +288,11 @@ struct WarrantyEditView: View {
                             
                     }
                     
+                    Toggle("Show Reminder", isOn: $extendedShowReminder.animation())
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+
+                    
                     HStack {
                         Text("Warranty Coverage")
                             .font(.caption)
@@ -271,8 +307,6 @@ struct WarrantyEditView: View {
 
                     
                 }
-                .textCase(.none)
-                .font(.headline)
                 
             }
             
@@ -385,10 +419,8 @@ struct WarrantyEditView: View {
             
         }
         .navigationBarTitle("Edit Warranty", displayMode: .large)
+//        .onDisappear(perform: updateReminders)
 
-
-        
- 
     }
     
     
@@ -403,16 +435,63 @@ struct WarrantyEditView: View {
         product.productPurchasedDate       = purchaseDate
         product.productSerial              = productSerial
         product.productCategoryImage       = productCategoryImage
+        
         product.warrantyType               = warrantType
         product.warrantyLength             = Int16(warrantyLength)
         product.warrantyExpiryDate         = warrantyExpiryDate
+        product.warrantyShowReminder       = warrantyShowReminder
         product.warrantyCoverage           = warrantyCoverage
+        
         product.extendedWarranty           = extendedWarranty
         product.extendedWarrantyCoverage   = extendedWarrantyCoverage
         product.extendedWarrantyCost       = extendedWarrantyCost
         product.extendedWarrantyExpiryDate = extendedWarrantyExpiryDate
+        product.extendedShowRemider        = extendedShowReminder
         
         product.comments = comments
+                
+        if warrantyShowReminder {
+
+            WarrantiesNotifications().addReminders(for: product) { success in
+
+                if success == false {
+
+                    // Not sure if I have to do anything here....
+                    warrantyShowReminder = false
+                    showingNotificationsError = true
+                }
+            }
+
+        } else {
+            WarrantiesNotifications().removeReminders(for: product)
+        }
+        
+        
+//        if warrantyShowReminder {
+//            
+//            if warrantyReminderID == "NOID" {
+//                
+//                WarrantiesReminders.askForPermission { success in
+//
+//                    WarrantiesReminders.addReminders(for: product) { success, eventId in
+//                        
+//                        if success {
+//                            self.product.warrantyReminderID = eventId
+//                        } else {
+//                            print("No good sir")
+//                        }
+//                    }
+//
+//
+//                }
+//
+//
+//                
+//                
+//            }
+//            
+//        }
+
         
     }
     
@@ -440,6 +519,16 @@ struct WarrantyEditView: View {
 
         dataController.save()
 
+    }
+    
+    func showAppSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
+        }
     }
 }
 

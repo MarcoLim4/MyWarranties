@@ -4,24 +4,23 @@ struct DashboardView: View {
         
     static let tag: String? = "Dashboard"
     
+    @EnvironmentObject var dataController: DataController
+    
     var body: some View {
 
         ScrollView {
-            
+
             VStack {
-                
-                
+
                 VStack(alignment: .center) {
                     
                     Text("Your Warranties Board")
                         .font(.system(size: 35))
                         .fontWeight(.bold)
-//                        .foregroundColor(Color("darkGreen"))
                         .lineLimit(3)
 
-                    Text("A look on all your items!")
+                    Text("A look into all your items!")
                         .font(.footnote)
-//                        .foregroundColor(Color("darkGreen"))
 
                 }
                 
@@ -31,11 +30,11 @@ struct DashboardView: View {
                 
             }
             .padding([.top, .bottom])
+
         }
         
     }
-    
-    
+        
 }
 
 struct DashboardView_Previews: PreviewProvider {

@@ -20,10 +20,14 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>MyWarranties would like to access user's calendars.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>MyWarranties would like to access the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>MyWarranties would like to save images to your photo allbum.</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>MyWarranties would like to access user's reminders.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

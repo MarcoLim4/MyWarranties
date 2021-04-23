@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0706F32632377600B3067B /* WarrantiesCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0706F22632377600B3067B /* WarrantiesCalendar.swift */; };
+		DD094A332631E7B2001D6B5D /* WarrantiesNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD094A322631E7B2001D6B5D /* WarrantiesNotifications.swift */; };
+		DD094A372631F43B001D6B5D /* WarrantiesReminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD094A362631F43B001D6B5D /* WarrantiesReminders.swift */; };
 		DD16EDF3261CD81800C82408 /* MyWarrantiesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16EDF2261CD81800C82408 /* MyWarrantiesApp.swift */; };
 		DD16EDF5261CD81800C82408 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD16EDF4261CD81800C82408 /* ContentView.swift */; };
 		DD16EDF7261CD81800C82408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD16EDF6261CD81800C82408 /* Assets.xcassets */; };
@@ -51,6 +54,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD0706F22632377600B3067B /* WarrantiesCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantiesCalendar.swift; sourceTree = "<group>"; };
+		DD094A322631E7B2001D6B5D /* WarrantiesNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantiesNotifications.swift; sourceTree = "<group>"; };
+		DD094A362631F43B001D6B5D /* WarrantiesReminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantiesReminders.swift; sourceTree = "<group>"; };
 		DD16EDEF261CD81800C82408 /* MyWarranties.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyWarranties.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD16EDF2261CD81800C82408 /* MyWarrantiesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWarrantiesApp.swift; sourceTree = "<group>"; };
 		DD16EDF4261CD81800C82408 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -132,6 +138,9 @@
 				DDED6C8D2626008600B3BC9D /* MyWarranties.entitlements */,
 				DD16EDF2261CD81800C82408 /* MyWarrantiesApp.swift */,
 				DD16EDF4261CD81800C82408 /* ContentView.swift */,
+				DD094A322631E7B2001D6B5D /* WarrantiesNotifications.swift */,
+				DD094A362631F43B001D6B5D /* WarrantiesReminders.swift */,
+				DD0706F22632377600B3067B /* WarrantiesCalendar.swift */,
 				DD8837862627BB3700E5361E /* Generic Views */,
 				DDBB60A026260CB80025B63D /* TabBar */,
 				DDBB60B1262629140025B63D /* Dashboard */,
@@ -337,11 +346,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD16EE07261CD8B200C82408 /* Binding-OnChange.swift in Sources */,
+				DD094A372631F43B001D6B5D /* WarrantiesReminders.swift in Sources */,
 				DD88378E2627BB4700E5361E /* LifeSpanView.swift in Sources */,
 				DD16EE04261CD88D00C82408 /* UIImage+Extension.swift in Sources */,
 				DD3C2EDE262632540069DAF4 /* ImagesAddNew.swift in Sources */,
 				DD3C2ECB262631510069DAF4 /* Number+Extension.swift in Sources */,
 				DD3C2EDD262632540069DAF4 /* ImagePicker.swift in Sources */,
+				DD094A332631E7B2001D6B5D /* WarrantiesNotifications.swift in Sources */,
+				DD0706F32632377600B3067B /* WarrantiesCalendar.swift in Sources */,
 				DD88378B2627BB4700E5361E /* NumbersOnlyView.swift in Sources */,
 				DD57D45E2627551500EC3636 /* WarrantiesViewCard.swift in Sources */,
 				DDCFFAEA2630A0A800FFD5FE /* DashboardModel.swift in Sources */,
@@ -499,7 +511,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -523,7 +535,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
