@@ -238,9 +238,18 @@ struct WarrantyEditView: View {
                         
                 }
                 
-                Toggle("Show Reminder", isOn: $warrantyShowReminder.animation())
+                Toggle("Add/Remove Reminder", isOn: $warrantyShowReminder.animation())
                     .font(.footnote)
                     .foregroundColor(.gray)
+                    .onChange(of: warrantyShowReminder) { value in
+                        
+                        if value {
+                            addReminder(forType: .normal)
+                        } else {
+                            removeReminder(forType: .normal)
+                        }
+                        
+                    }
                     .alert(isPresented: $showingNotificationsError) {
                         Alert(
                             title: Text("Reminded Error"),
@@ -288,11 +297,6 @@ struct WarrantyEditView: View {
                             
                     }
                     
-                    Toggle("Show Reminder", isOn: $extendedShowReminder.animation())
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-
-                    
                     HStack {
                         Text("Warranty Coverage")
                             .font(.caption)
@@ -302,7 +306,29 @@ struct WarrantyEditView: View {
                             .font(.callout)
                         
                     }
-
+                    
+                    
+                    Toggle("Add/Remove Reminder", isOn: $extendedShowReminder.animation())
+                        .font(.footnote)
+                        .foregroundColor(.gray)
+                        .onChange(of: extendedShowReminder) { value in
+                            
+                            if value {
+                                addReminder(forType: .extended)
+                            } else {
+                                removeReminder(forType: .extended)
+                            }
+                            
+                        }
+                        .alert(isPresented: $showingNotificationsError) {
+                            Alert(
+                                title: Text("Reminded Error"),
+                                message: Text("There was a problem. Please check if you have notifications enabled."),
+                                primaryButton: .default(Text("Check Settings"), action: showAppSettings),
+                                secondaryButton: .cancel()
+                            )
+                             
+                        }
 
 
                     
@@ -395,6 +421,11 @@ struct WarrantyEditView: View {
                         message: Text("By confirming this action, it will permanently delete the product and all associated data!"),
                         primaryButton: .destructive(Text("Yes, delete it!")) {
 
+                            
+                            // Upon deletion, we try to remove the reminders, if any.
+                            self.removeReminder(forType: .normal)
+                            self.removeReminder(forType: .extended)
+                            
                             dataController.delete(product)
                             viewModel.refreshFetch()
                             self.presentation.wrappedValue.dismiss()
@@ -419,7 +450,7 @@ struct WarrantyEditView: View {
             
         }
         .navigationBarTitle("Edit Warranty", displayMode: .large)
-//        .onDisappear(perform: updateReminders)
+//        .onDisappear(perform: update)
 
     }
     
@@ -449,49 +480,6 @@ struct WarrantyEditView: View {
         product.extendedShowRemider        = extendedShowReminder
         
         product.comments = comments
-                
-        if warrantyShowReminder {
-
-            WarrantiesNotifications().addReminders(for: product) { success in
-
-                if success == false {
-
-                    // Not sure if I have to do anything here....
-                    warrantyShowReminder = false
-                    showingNotificationsError = true
-                }
-            }
-
-        } else {
-            WarrantiesNotifications().removeReminders(for: product)
-        }
-        
-        
-//        if warrantyShowReminder {
-//            
-//            if warrantyReminderID == "NOID" {
-//                
-//                WarrantiesReminders.askForPermission { success in
-//
-//                    WarrantiesReminders.addReminders(for: product) { success, eventId in
-//                        
-//                        if success {
-//                            self.product.warrantyReminderID = eventId
-//                        } else {
-//                            print("No good sir")
-//                        }
-//                    }
-//
-//
-//                }
-//
-//
-//                
-//                
-//            }
-//            
-//        }
-
         
     }
     
@@ -530,6 +518,66 @@ struct WarrantyEditView: View {
             UIApplication.shared.open(settingsUrl)
         }
     }
+    
+    
+    private func addReminder(forType: WarrantyType) {
+        
+        WarrantiesReminders.askForPermission { success in
+
+
+            if !success {
+
+                print("No good sir")
+                self.showingNotificationsError.toggle()
+                if forType == .normal {
+                    self.product.warrantyShowReminder = false
+                    self.warrantyShowReminder = false
+                } else {
+                    self.product.extendedShowRemider = false
+                    self.extendedShowReminder = false
+                }
+
+                return
+                
+            }
+
+            WarrantiesReminders.addReminders(for: product, warrantyType: forType) { success, eventId in
+                
+                if success {
+                    
+                    if forType == .normal {
+                        self.product.warrantyReminderID = eventId
+                    } else {
+                        self.product.extendedReminderID = eventId
+                    }
+                    
+                }
+                
+            }
+
+        }
+
+    }
+    
+    private func removeReminder(forType: WarrantyType) {
+        
+        let remindedID = forType == .normal ? product.warrantyReminderID  : product.extendedReminderID
+        
+        WarrantiesReminders.removeReminder(reminderID: remindedID ?? "") { success in
+            
+            if success {
+                
+                if forType == .normal {
+                    self.product.warrantyReminderID = ""
+                } else {
+                    self.product.extendedReminderID = ""
+                }
+                
+            }
+        }
+
+    }
+    
 }
 
 //struct WarrantyEditView_Previews: PreviewProvider {

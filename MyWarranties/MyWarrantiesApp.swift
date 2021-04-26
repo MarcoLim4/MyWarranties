@@ -43,6 +43,19 @@ struct MyWarrantiesApp: App {
 //        UITableViewCell.appearance().selectionStyle = .none
 //        UITableViewCell.appearance().selectedBackgroundView = UIView()
         
+        
+        WarrantiesReminders.askForPermission { _ in
+            
+            /*
+                
+                We don't need to do anything here.
+                Just to make sure we ask permission on App loading
+            
+            */
+        
+        }
+        
+        
     }
     
 

@@ -1,21 +1,22 @@
-//
-//  CardExtendedItems.swift
-//  MyWarranties
-//
-//  Created by Marco Lima on 2021-04-21.
-//
-
 import SwiftUI
+
+struct ExtendedWarrantyCard {
+    let itemsCount: Int
+    let itemsSum: Double
+    let itemsValid: Int
+    let itemsExpired: Int
+}
 
 struct CardExtendedItems: View {
     
-    
+    let cardData: ExtendedWarrantyCard
+        
     var body: some View {
         
         VStack {
             
             Text("Extended Warranty")
-                .font(.system(size: 35))
+                .font(.system(size: 30))
                 .fontWeight(.semibold)
                 .foregroundColor(Color("darkGreen"))
                 .lineLimit(3)
@@ -29,12 +30,12 @@ struct CardExtendedItems: View {
                     
                     VStack(alignment: .center) {
 
-                        Text("3")
+                        Text("\(cardData.itemsCount)")
                             .font(.system(size: 30))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
                         
-                        Text("Items")
+                        Text(cardData.itemsCount > 1 ? "Items" : "Item")
                             .foregroundColor(Color("darkGreen"))
                         
                     }
@@ -47,7 +48,7 @@ struct CardExtendedItems: View {
                     VStack(alignment: .center) {
 
 
-                        Text("$ 3,000.00")
+                        Text("\(cardData.itemsSum.stringValue())")
                             .font(.system(size: 30))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
@@ -83,13 +84,13 @@ struct CardExtendedItems: View {
                             .padding(.bottom, 0)
                             .padding(.horizontal)
 
-                        Text("2")
+                        Text("\(cardData.itemsValid)")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
                         
-                        Text("Items")
-                            .foregroundColor(Color("darkGreen"))
+//                        Text(cardData.itemsValid > 1 ? "Items" : "Item")
+//                            .foregroundColor(Color("darkGreen"))
                         
                         Text("Valid")
                             .font(.system(size: 20))
@@ -117,13 +118,13 @@ struct CardExtendedItems: View {
                             .padding(.bottom, 0)
                             .padding(.horizontal)
 
-                        Text("1")
+                        Text("\(cardData.itemsExpired)")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
                         
-                        Text("Item")
-                            .foregroundColor(Color("darkGreen"))
+//                        Text(cardData.itemsExpired > 1 ? "Items" : "Item")
+//                            .foregroundColor(Color("darkGreen"))
                         
                         Text("Expired")
                             .font(.system(size: 20))
@@ -163,8 +164,8 @@ struct CardExtendedItems: View {
 struct CardExtendedItems_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            CardExtendedItems()
-            CardExtendedItems()
+            CardExtendedItems(cardData: ExtendedWarrantyCard(itemsCount: 3, itemsSum: 500.0, itemsValid: 1, itemsExpired: 2))
+            CardExtendedItems(cardData: ExtendedWarrantyCard(itemsCount: 6, itemsSum: 900.0, itemsValid: 4, itemsExpired: 2))
                 .preferredColorScheme(.dark)
         }
     }
