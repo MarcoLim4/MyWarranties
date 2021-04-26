@@ -96,9 +96,9 @@ struct WarrantiesView: View {
                         .padding(.top, 10)
                         
                     }                    
-                    .onDelete(perform: { indexSet in
-                        print(indexSet)
-                    })
+//                    .onDelete(perform: { indexSet in
+//                        print(indexSet)
+//                    })
                     
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)

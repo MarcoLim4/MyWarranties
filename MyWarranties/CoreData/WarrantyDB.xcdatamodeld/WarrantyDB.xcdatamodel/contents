@@ -7,11 +7,12 @@
     </entity>
     <entity name="Products" representedClassName="Products" syncable="YES" codeGenerationType="class">
         <attribute name="comments" optional="YES" attributeType="String"/>
+        <attribute name="extendedReminderID" optional="YES" attributeType="String"/>
         <attribute name="extendedShowRemider" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="extendedWarranty" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="extendedWarrantyCost" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="extendedWarrantyCoverage" optional="YES" attributeType="String"/>
-        <attribute name="extendedWarrantyExpiryDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="extendedWarrantyExpiryDate" attributeType="Date" defaultDateTimeInterval="641157780" usesScalarValueType="NO"/>
         <attribute name="productBrand" optional="YES" attributeType="String"/>
         <attribute name="productCategoryImage" optional="YES" attributeType="String"/>
         <attribute name="productID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
@@ -22,7 +23,7 @@
         <attribute name="productSerial" optional="YES" attributeType="String"/>
         <attribute name="retailerName" optional="YES" attributeType="String"/>
         <attribute name="warrantyCoverage" optional="YES" attributeType="String"/>
-        <attribute name="warrantyExpiryDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="warrantyExpiryDate" attributeType="Date" defaultDateTimeInterval="641157720" usesScalarValueType="NO"/>
         <attribute name="warrantyLength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="warrantyReminderID" optional="YES" attributeType="String"/>
         <attribute name="warrantyShowReminder" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -31,6 +32,6 @@
     </entity>
     <elements>
         <element name="Photos" positionX="18" positionY="135" width="128" height="74"/>
-        <element name="Products" positionX="-27" positionY="18" width="128" height="359"/>
+        <element name="Products" positionX="-27" positionY="18" width="128" height="374"/>
     </elements>
 </model>
