@@ -1,108 +1,91 @@
-//
-//  SettingsViewController.swift
-//  MyWarranties
-//
-//  Created by Marco Lima on 2021-04-13.
-//
-
 import SwiftUI
 
 struct SettingsView: View {
     
     static let tag: String? = "Settings"
     
-    let categories = ["01-Computer", "02-Electronics", "03-Computer", "04-Laptop", "06-Phone", "07-TV",
-                      "08-Speaker", "09-Control", "10-Headphones", "11-Microwave", "12-VirtualGogles",
-                      "13-Mic", "14-Speaker", "15-Stove", "16-Washer", "17-Fridge", "18-Microwave",
-                      "19-Radio", "20-HomeTheater", "21-Projector", "22-CoffeMaker", "23-SlowCook",
-                      "25-MiniBlender", "26-Blender", "27-Toaster", "28-Kettle", "29-Camera",
-                      "30-Camera01", "31-VideoRecorder", "32-Games", "33-BlowDryer", "34-Vacuum",
-                      "35-Iron", "36-Drill", "37-Fan", "38-Printer", "39-bicycle", "40-Cars",
-                      "41-SportingGoods", "42-House", "43-Motorcycle", "44-Scooter", "45-Tractor",
-                      "46-Yatch"]
-    
-    
-    @State private var imageName: String
-    
-    init() {
-        _imageName = State(wrappedValue: "")
-    }
+    @State private var showDisclaimer    = false
+    @State private var showRemindersTool = false
     
     var body: some View {
-        
-        
-//        VStack {
-//
-//            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: 4),spacing: 20) {
-//
-//                ForEach(categories, id: \.self) { imageName in
-//
-//                    HStack {
-//
-//                        Button(action: {
-//
-//
-//
-//                        }, label: {
-//                            Image(imageName)
-//                                .resizable()
-//                                .renderingMode(.template)
-//                                .frame(width: 50, height: 50)
-//                                .foregroundColor(.gray)
-//                        })
-////
-////                        Text("\(imageName)")
-////                            .font(.footnote)
-//
-//
-//                    }
-//
-//
-//                }
-//
-//
-//
-//            }
-//            .padding()
-//        }
-        
-        VStack {
 
-            Form {
+        NavigationView {
 
-                Section(header: Text("Product Category") ) {
+            List {
+                
+                VStack(alignment: .leading) {
 
-                    HStack {
-
-                        Picker("Category Image", selection: $imageName) {
-
-                            ForEach(categories, id: \.self) { imageName in
-
-                                Image(imageName)
-                                    .resizable()
-                                    .renderingMode(.template)
-                                    .frame(width: 50, height: 50)
+                    Button(action: {
+                        self.showDisclaimer.toggle()
+                    }) {
+                        HStack(spacing:10) {
+                            
+                            Image(systemName: "doc.text.below.ecg")
+                                .resizable()
+                                .renderingMode(.template)
+                                .foregroundColor(Color("darkGreen"))
+                                .frame(width: 15, height: 15)
+                                .padding()
+                                .cornerRadius(10)
+                                .overlay(Circle()
+                                            .stroke(Color("officialGreen"), lineWidth: 2))
+                                .shadow(radius: 10)
+                            
+                            Text("Disclaimer")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("darkGreen"))
                                 
-                            }
-                            .foregroundColor(.gray)
-
                         }
-                        .pickerStyle(DefaultPickerStyle())
-
                     }
 
-
+                }
+                .padding(.all, 10)
+                .sheet(isPresented: $showDisclaimer) {
+                    DisclaimerView()
                 }
 
+                VStack(alignment: .leading) {
+
+                    Button(action: {
+                        self.showRemindersTool.toggle()
+                    }) {
+                        HStack(spacing:10) {
+                            
+                            Image(systemName: "calendar.badge.minus")
+                                .resizable()
+                                .renderingMode(.template)
+                                .foregroundColor(Color("darkGreen"))
+                                .frame(width: 15, height: 15)
+                                .padding()
+                                .cornerRadius(10)
+                                .overlay(Circle()
+                                            .stroke(Color("officialGreen"), lineWidth: 2))
+                                .shadow(radius: 10)
+                            
+                            Text("Reminders Tool")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("darkGreen"))
+                                
+                        }
+                    }
+
+                }
+                .padding(.all, 10)
+                .sheet(isPresented: $showRemindersTool) {
+                    RemindersToolView()
+                }
+                
             }
+            .navigationTitle("Settings")
 
-
+            
         }
-        
 
-        
-        
+
     }
+
 }
 
 struct SettingsViewController_Previews: PreviewProvider {
@@ -110,3 +93,40 @@ struct SettingsViewController_Previews: PreviewProvider {
         SettingsView()
     }
 }
+
+
+
+// to be used in the Navigtaion View (Not sheet)
+//{
+ 
+//                    VStack(alignment: .leading) {
+//
+//                        NavigationLink(destination: RemindersToolView()) {
+//
+//                            HStack(spacing:10) {
+//
+//                                Image(systemName: "calendar.badge.minus")
+//                                    .resizable()
+//                                    .renderingMode(.template)
+//                                    .foregroundColor(Color("darkGreen"))
+//                                    .frame(width: 18, height: 18)
+//                                    .padding()
+//                                    .cornerRadius(10)
+//                                    .overlay(Circle()
+//                                                .stroke(Color("officialGreen"), lineWidth: 2))
+//                                    .shadow(radius: 10)
+//
+//                                Text("Reminders Tool")
+//                                    .font(.system(size: 20))
+//                                    .fontWeight(.bold)
+//                                    .foregroundColor(Color("darkGreen"))
+//
+//                            }
+//
+//
+//                        }
+//
+//                    }
+//                    .padding(.all, 10)
+    
+//}

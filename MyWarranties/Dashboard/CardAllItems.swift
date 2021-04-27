@@ -110,7 +110,6 @@ struct CardAllItems: View {
                 .foregroundColor(Color("darkGreen"))
                 .foregroundColor(Color.white)
                 .lineLimit(3)
-//                .padding([.bottom, .top], 5)
                 .shadow(radius: 15)
 
             

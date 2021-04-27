@@ -5,13 +5,10 @@ struct DashboardView: View {
         
     static let tag: String? = "Dashboard"
     
-    @EnvironmentObject var dataController: DataController
+//    @EnvironmentObject var dataController: DataController
     
     let products : FetchRequest<Products>
     let extended : FetchRequest<Products>
-
-//    let extendedValid : FetchRequest<Products>
-//    let extendedExpir : FetchRequest<Products>
 
     let photos   : FetchRequest<Photos>
 
@@ -19,22 +16,10 @@ struct DashboardView: View {
 
         let request: NSFetchRequest<Products> = Products.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.productName, ascending: false)]
-//        request.predicate = NSPredicate(format: "sold = false")
-
         products = FetchRequest(fetchRequest: request)
 
         request.predicate = NSPredicate(format: "extendedWarranty = true")
         extended = FetchRequest(fetchRequest: request)
-//
-//        let filterDate = Date().toString(format: "yyyy-MM-dd")
-//
-//        request.predicate = NSPredicate(format: "extendedWarranty = true AND (extendedWarrantyExpiryDate > \(filterDate))")
-//        extendedValid = FetchRequest(fetchRequest: request)
-//
-//        request.predicate = NSPredicate(format: "extendedWarranty = true AND (extendedWarrantyExpiryDate < \(filterDate))")
-//        extendedExpir = FetchRequest(fetchRequest: request)
-
-
 
         let requestImages: NSFetchRequest<Photos> = Photos.fetchRequest()
         requestImages.sortDescriptors = [NSSortDescriptor(keyPath: \Photos.comments, ascending: false)]
@@ -80,8 +65,8 @@ struct DashboardView: View {
 
         
         let extendedValidItems = products.wrappedValue.filter { $0.warrantyExpiryDate != nil }
-        let validTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() <= Date() }.count
-        let expirTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() >  Date() }.count
+        let validTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() >  Date() }.count
+        let expirTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() <= Date() }.count
 
 
         let viewData = RegularWarrantyCard(productsCount: totalItems, productsSum: sum, productsPhotosCount: totalPhotos,
@@ -98,8 +83,8 @@ struct DashboardView: View {
 
         
         let extendedValidItems = extended.wrappedValue.filter { $0.extendedWarrantyExpiryDate != nil }
-        let validTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() <= Date() }.count
-        let expirTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() >  Date() }.count
+        let validTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() >  Date() }.count
+        let expirTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() <= Date() }.count
 
 
         let viewData = ExtendedWarrantyCard(itemsCount: totalItems, itemsSum: sum, itemsValid: validTotalRecords, itemsExpired: expirTotalRecords)

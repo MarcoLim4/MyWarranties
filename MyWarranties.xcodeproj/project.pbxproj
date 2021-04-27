@@ -42,6 +42,8 @@
 		DDBB60A326261F020025B63D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A226261F020025B63D /* SettingsView.swift */; };
 		DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A7262622960025B63D /* WarrantyEditView.swift */; };
 		DDBB60AC262627A00025B63D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60AB262627A00025B63D /* DashboardView.swift */; };
+		DDC73BC626376E11006D5A4F /* DisclaimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC73BC526376E11006D5A4F /* DisclaimerView.swift */; };
+		DDC73BC92637935B006D5A4F /* RemindersToolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC73BC82637935B006D5A4F /* RemindersToolView.swift */; };
 		DDDF56092630AA24007D9E82 /* CardAllItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF56082630AA24007D9E82 /* CardAllItems.swift */; };
 		DDDF560C2630AAB9007D9E82 /* CardExtendedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDF560B2630AAB9007D9E82 /* CardExtendedItems.swift */; };
 		DDED6C692625E0EB00B3BC9D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED6C682625E0EB00B3BC9D /* DataController.swift */; };
@@ -50,6 +52,7 @@
 		DDED6C842625FBF600B3BC9D /* WarrantiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED6C832625FBF600B3BC9D /* WarrantiesView.swift */; };
 		DDED6C892625FC8700B3BC9D /* Products+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED6C882625FC8700B3BC9D /* Products+CoreData.swift */; };
 		DDED6C912626009500B3BC9D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED6C902626009500B3BC9D /* CloudKit.framework */; };
+		DDF1692D26385D1F0075503B /* SlideDownToCloseBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF1692C26385D1F0075503B /* SlideDownToCloseBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +93,8 @@
 		DDBB60A226261F020025B63D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DDBB60A7262622960025B63D /* WarrantyEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyEditView.swift; sourceTree = "<group>"; };
 		DDBB60AB262627A00025B63D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		DDC73BC526376E11006D5A4F /* DisclaimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerView.swift; sourceTree = "<group>"; };
+		DDC73BC82637935B006D5A4F /* RemindersToolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersToolView.swift; sourceTree = "<group>"; };
 		DDDF56082630AA24007D9E82 /* CardAllItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAllItems.swift; sourceTree = "<group>"; };
 		DDDF560B2630AAB9007D9E82 /* CardExtendedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExtendedItems.swift; sourceTree = "<group>"; };
 		DDED6C682625E0EB00B3BC9D /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
@@ -99,6 +104,7 @@
 		DDED6C882625FC8700B3BC9D /* Products+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Products+CoreData.swift"; sourceTree = "<group>"; };
 		DDED6C8D2626008600B3BC9D /* MyWarranties.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyWarranties.entitlements; sourceTree = "<group>"; };
 		DDED6C902626009500B3BC9D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		DDF1692C26385D1F0075503B /* SlideDownToCloseBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideDownToCloseBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,7 @@
 				DD8837882627BB4700E5361E /* NumberEntryField.swift */,
 				DD8837872627BB4700E5361E /* NumbersOnlyView.swift */,
 				DD8837892627BB4700E5361E /* RatingView.swift */,
+				DDF1692C26385D1F0075503B /* SlideDownToCloseBar.swift */,
 			);
 			path = "Generic Views";
 			sourceTree = "<group>";
@@ -247,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				DDBB60A226261F020025B63D /* SettingsView.swift */,
+				DDC73BC526376E11006D5A4F /* DisclaimerView.swift */,
+				DDC73BC82637935B006D5A4F /* RemindersToolView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -344,6 +353,7 @@
 			files = (
 				DD16EE07261CD8B200C82408 /* Binding-OnChange.swift in Sources */,
 				DD094A372631F43B001D6B5D /* WarrantiesReminders.swift in Sources */,
+				DDF1692D26385D1F0075503B /* SlideDownToCloseBar.swift in Sources */,
 				DD88378E2627BB4700E5361E /* LifeSpanView.swift in Sources */,
 				DD16EE04261CD88D00C82408 /* UIImage+Extension.swift in Sources */,
 				DD3C2EDE262632540069DAF4 /* ImagesAddNew.swift in Sources */,
@@ -351,6 +361,8 @@
 				DD3C2EDD262632540069DAF4 /* ImagePicker.swift in Sources */,
 				DD094A332631E7B2001D6B5D /* WarrantiesNotifications.swift in Sources */,
 				DD0706F32632377600B3067B /* WarrantiesCalendar.swift in Sources */,
+				DDC73BC626376E11006D5A4F /* DisclaimerView.swift in Sources */,
+				DDC73BC92637935B006D5A4F /* RemindersToolView.swift in Sources */,
 				DD88378B2627BB4700E5361E /* NumbersOnlyView.swift in Sources */,
 				DD57D45E2627551500EC3636 /* WarrantiesViewCard.swift in Sources */,
 				DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */,
@@ -507,7 +519,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -531,7 +543,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;

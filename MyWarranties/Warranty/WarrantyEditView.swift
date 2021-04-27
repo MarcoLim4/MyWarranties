@@ -520,7 +520,7 @@ struct WarrantyEditView: View {
     }
     
     
-    private func addReminder(forType: WarrantyType) {
+    func addReminder(forType: WarrantyType) {
         
         WarrantiesReminders.askForPermission { success in
 
