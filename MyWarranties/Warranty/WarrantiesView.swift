@@ -5,10 +5,8 @@ struct WarrantiesView: View {
     static let tag: String? = "Warranties"
     
     @StateObject var viewModel: ViewModel
-    
     @State private var showSearchBar = false
-    
-    let colors = ["yellow", "green", "orange", "blue", "cyan", "purple", "pink"]
+    @State private var sort = "5 Days"
     
     init(dataController: DataController) {
         
@@ -104,6 +102,27 @@ struct WarrantiesView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                 .navigationTitle("My Warranties")
                 .toolbar {
+                    
+                    ToolbarItemGroup(placement: .navigationBarLeading) {
+
+                        Menu {
+                            
+                            Button("Product Name",         action: { setOrder(key: .sortByProductName) })
+                            Button("Brand Name",           action: { setOrder(key: .sortByBrandName) })
+                            Button("Expiry Date",          action: { setOrder(key: .sortByExpiryDate) })
+                            Button("Extended Expiry Date", action: { setOrder(key: .sortByExtendedExpiryDate) })
+                            
+                        } label: {
+
+                            Image(systemName: "arrow.up.arrow.down")
+                                .renderingMode(.template)
+                                .foregroundColor(Color("officialGreen"))
+
+                        }
+                        
+                        
+                    }
+                                        
                     ToolbarItemGroup(placement: .navigationBarTrailing) {
                         
                         if viewModel.products.count > 0 {
@@ -135,7 +154,6 @@ struct WarrantiesView: View {
 
                     }
                     
-                    
                 }
                 
             }
@@ -146,6 +164,14 @@ struct WarrantiesView: View {
         .edgesIgnoringSafeArea(.all)
         
     }
+    
+    func setOrder(key: Constants.SortingKeys) {
+        
+        UserDefaults.standard.setValue(key.rawValue as String, forKey: "ProductSortOrder")
+        
+        viewModel.refreshFetch()
+    }
+    
     
 }
 

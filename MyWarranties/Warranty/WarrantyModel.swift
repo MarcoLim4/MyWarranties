@@ -7,8 +7,9 @@ extension WarrantiesView {
     class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
         
         let dataController: DataController
+        let request: NSFetchRequest<Products> = Products.fetchRequest()
         
-        private let productsController: NSFetchedResultsController<Products>
+        private var productsController: NSFetchedResultsController<Products>
         
         @Published var products = [Products]()
         @Published var filteredProducts: [Products] = []
@@ -19,7 +20,7 @@ extension WarrantiesView {
             
             self.dataController = dataController
             
-            let request: NSFetchRequest<Products> = Products.fetchRequest()
+//            let request: NSFetchRequest<Products> = Products.fetchRequest()
             request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.productName, ascending: false)]//,
 //                                       NSSortDescriptor(keyPath: \Products.productBrand, ascending: true)]
             
@@ -55,11 +56,16 @@ extension WarrantiesView {
             
             let newProduct = Products(context: dataController.container.viewContext)
             
-            newProduct.productID             = UUID()
-            newProduct.productName           = "_Product Name"
-            newProduct.productBrand          = "Brand Name"
-            newProduct.productPurchasedDate  = Date()
-            newProduct.productCategoryImage  = "01-Computer"
+            newProduct.productID                  = UUID()
+            newProduct.productName                = "_ New Product _"
+            newProduct.productBrand               = "_ Brand Name _"
+            newProduct.productPurchasedDate       = Date()
+            newProduct.warrantyExpiryDate         = Date()
+            newProduct.extendedWarrantyExpiryDate = Date()
+            newProduct.warrantyReminderNotice     = "5 days"
+            
+            
+            newProduct.productCategoryImage       = "01-Computer"
 
             dataController.save()
             
@@ -67,8 +73,32 @@ extension WarrantiesView {
             
         }
         
+        /*
+                I don't like much the way I'm doing this but...
+                Maybe later I can try to find a way of just changing the sort order on the Array of Data instead of doing another Fetch
+                ... or maybe this is it. Lucky we are just sorting local data, which is super fast. Still.... no too happy!
+         */
+        
         func refreshFetch() {
-            
+
+            let sortOrder = UserDefaults.standard.string(forKey: "ProductSortOrder")
+
+            switch sortOrder {
+            case Constants.SortingKeys.sortByProductName.rawValue:
+                request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.productName, ascending: true)]
+            case Constants.SortingKeys.sortByBrandName.rawValue:
+                request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.productBrand, ascending: true)]
+            case Constants.SortingKeys.sortByExpiryDate.rawValue:
+                request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.warrantyExpiryDate, ascending: true)]//,
+            default:
+                request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.extendedWarrantyExpiryDate, ascending: true)]//,
+            }
+                        
+            self.productsController = NSFetchedResultsController(fetchRequest: request,
+                                                                 managedObjectContext: dataController.container.viewContext,
+                                                                 sectionNameKeyPath: nil,
+                                                                 cacheName: nil)
+                        
             do {
                 try productsController.performFetch()
                 products = productsController.fetchedObjects ?? []

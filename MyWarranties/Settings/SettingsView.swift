@@ -6,6 +6,7 @@ struct SettingsView: View {
     
     @State private var showDisclaimer    = false
     @State private var showRemindersTool = false
+    @State private var showDefaultValues = false
     
     var body: some View {
 
@@ -45,6 +46,39 @@ struct SettingsView: View {
                     DisclaimerView()
                 }
 
+                VStack(alignment: .leading) {
+
+                    Button(action: {
+                        self.showDefaultValues.toggle()
+                    }) {
+                        HStack(spacing:10) {
+                            
+                            Image(systemName: "rectangle.and.pencil.and.ellipsis")
+                                .resizable()
+                                .renderingMode(.template)
+                                .foregroundColor(Color("darkGreen"))
+                                .frame(width: 15, height: 15)
+                                .padding()
+                                .cornerRadius(10)
+                                .overlay(Circle()
+                                            .stroke(Color("officialGreen"), lineWidth: 2))
+                                .shadow(radius: 10)
+                            
+                            Text("Default Values")
+                                .font(.system(size: 20))
+                                .fontWeight(.bold)
+                                .foregroundColor(Color("darkGreen"))
+                                
+                        }
+                    }
+
+                }
+                .padding(.all, 10)
+                .sheet(isPresented: $showDefaultValues) {
+                    DefaultValuesView()
+                }
+
+                
                 VStack(alignment: .leading) {
 
                     Button(action: {

@@ -34,6 +34,12 @@ extension Products {
         return types.sorted() + ["Other Services"]  // Sorting all the others and keeping Other Services at the End
     }
 
+    var warrantyReminderNoticeTypes: [String] {
+        
+        let reminders = ["5 Days", "15 Days", "1 Month", "3 Months", "6 Months"]
+        return reminders
+        
+    }
     
     
 //MARK: Sample Data

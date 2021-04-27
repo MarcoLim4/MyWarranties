@@ -1,10 +1,3 @@
-//
-//  DisclaimerView.swift
-//  MyWarranties
-//
-//  Created by Marco Lima on 2021-04-26.
-//
-
 import SwiftUI
 
 struct DisclaimerView: View {

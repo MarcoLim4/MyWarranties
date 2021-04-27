@@ -65,8 +65,8 @@ struct DashboardView: View {
 
         
         let extendedValidItems = products.wrappedValue.filter { $0.warrantyExpiryDate != nil }
-        let validTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() >  Date() }.count
-        let expirTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() <= Date() }.count
+        let validTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() >=  Date() }.count
+        let expirTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() < Date() }.count
 
 
         let viewData = RegularWarrantyCard(productsCount: totalItems, productsSum: sum, productsPhotosCount: totalPhotos,
@@ -83,8 +83,8 @@ struct DashboardView: View {
 
         
         let extendedValidItems = extended.wrappedValue.filter { $0.extendedWarrantyExpiryDate != nil }
-        let validTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() >  Date() }.count
-        let expirTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() <= Date() }.count
+        let validTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() >=  Date() }.count
+        let expirTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() < Date() }.count
 
 
         let viewData = ExtendedWarrantyCard(itemsCount: totalItems, itemsSum: sum, itemsValid: validTotalRecords, itemsExpired: expirTotalRecords)

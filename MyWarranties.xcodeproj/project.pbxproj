@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,9 @@
 		DDA14218262F43750015AF29 /* Icons01.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA14217262F43750015AF29 /* Icons01.xcassets */; };
 		DDA1421B262F5DFC0015AF29 /* Categories.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA1421A262F5DFC0015AF29 /* Categories.xcassets */; };
 		DDA14220262F62240015AF29 /* WarrantyDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDBB608E262607030025B63D /* WarrantyDB.xcdatamodeld */; };
+		DDA4F30426388251009654F9 /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDA4F30326388251009654F9 /* SwiftUIKit */; };
+		DDA4F30726388D1F009654F9 /* DefaultValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F30626388D1F009654F9 /* DefaultValuesView.swift */; };
+		DDA4F30A263891A9009654F9 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F309263891A9009654F9 /* Contants.swift */; };
 		DDBB60A326261F020025B63D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A226261F020025B63D /* SettingsView.swift */; };
 		DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A7262622960025B63D /* WarrantyEditView.swift */; };
 		DDBB60AC262627A00025B63D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60AB262627A00025B63D /* DashboardView.swift */; };
@@ -89,6 +92,8 @@
 		DD8837C7262DE6AE00E5361E /* CustomTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		DDA14217262F43750015AF29 /* Icons01.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons01.xcassets; sourceTree = "<group>"; };
 		DDA1421A262F5DFC0015AF29 /* Categories.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Categories.xcassets; sourceTree = "<group>"; };
+		DDA4F30626388D1F009654F9 /* DefaultValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValuesView.swift; sourceTree = "<group>"; };
+		DDA4F309263891A9009654F9 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 		DDBB608F262607030025B63D /* WarrantyDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WarrantyDB.xcdatamodel; sourceTree = "<group>"; };
 		DDBB60A226261F020025B63D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DDBB60A7262622960025B63D /* WarrantyEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyEditView.swift; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDED6C912626009500B3BC9D /* CloudKit.framework in Frameworks */,
+				DDA4F30426388251009654F9 /* SwiftUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3C2EE526263C760069DAF4 /* DateHelper.swift */,
+				DDA4F309263891A9009654F9 /* Contants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -256,6 +263,7 @@
 				DDBB60A226261F020025B63D /* SettingsView.swift */,
 				DDC73BC526376E11006D5A4F /* DisclaimerView.swift */,
 				DDC73BC82637935B006D5A4F /* RemindersToolView.swift */,
+				DDA4F30626388D1F009654F9 /* DefaultValuesView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -294,6 +302,9 @@
 			dependencies = (
 			);
 			name = MyWarranties;
+			packageProductDependencies = (
+				DDA4F30326388251009654F9 /* SwiftUIKit */,
+			);
 			productName = MyWarranties;
 			productReference = DD16EDEF261CD81800C82408 /* MyWarranties.app */;
 			productType = "com.apple.product-type.application";
@@ -321,6 +332,9 @@
 				Base,
 			);
 			mainGroup = DD16EDE6261CD81800C82408;
+			packageReferences = (
+				DDA4F30226388251009654F9 /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
+			);
 			productRefGroup = DD16EDF0261CD81800C82408 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -359,6 +373,7 @@
 				DD3C2EDE262632540069DAF4 /* ImagesAddNew.swift in Sources */,
 				DD3C2ECB262631510069DAF4 /* Number+Extension.swift in Sources */,
 				DD3C2EDD262632540069DAF4 /* ImagePicker.swift in Sources */,
+				DDA4F30A263891A9009654F9 /* Contants.swift in Sources */,
 				DD094A332631E7B2001D6B5D /* WarrantiesNotifications.swift in Sources */,
 				DD0706F32632377600B3067B /* WarrantiesCalendar.swift in Sources */,
 				DDC73BC626376E11006D5A4F /* DisclaimerView.swift in Sources */,
@@ -369,6 +384,7 @@
 				DD3C2ECC262631510069DAF4 /* UIColor+Extension.swift in Sources */,
 				DDDF560C2630AAB9007D9E82 /* CardExtendedItems.swift in Sources */,
 				DD3C2EEA26263DAE0069DAF4 /* WarrantyModel.swift in Sources */,
+				DDA4F30726388D1F009654F9 /* DefaultValuesView.swift in Sources */,
 				DD88378C2627BB4700E5361E /* NumberEntryField.swift in Sources */,
 				DDBB60A326261F020025B63D /* SettingsView.swift in Sources */,
 				DD16EDF5261CD81800C82408 /* ContentView.swift in Sources */,
@@ -519,7 +535,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -543,7 +559,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -582,6 +598,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDA4F30226388251009654F9 /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youjinp/SwiftUIKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.15;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDA4F30326388251009654F9 /* SwiftUIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDA4F30226388251009654F9 /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
+			productName = SwiftUIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DDBB608E262607030025B63D /* WarrantyDB.xcdatamodeld */ = {

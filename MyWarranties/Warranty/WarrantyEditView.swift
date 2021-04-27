@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftUIKit
 
 struct WarrantyEditView: View {
     
@@ -34,7 +35,7 @@ struct WarrantyEditView: View {
     @State private var productName: String
     @State private var productBrand: String
     @State private var retailerName: String
-    @State private var productPurchValue: Double
+    @State private var productPurchValue: Double?
     @State private var purchaseDate: Date
     @State private var productSerial: String
     @State private var productCategoryImage: String
@@ -45,9 +46,10 @@ struct WarrantyEditView: View {
     @State private var warrantyShowReminder: Bool
     @State private var warrantyReminderID: String
     @State private var warrantyCoverage: String
+//    @State private var warrantyReminderNotice: String
     
     @State private var extendedWarranty: Bool
-    @State private var extendedWarrantyCost: Double
+    @State private var extendedWarrantyCost: Double?
     @State private var extendedWarrantyExpiryDate: Date
     @State private var extendedShowReminder: Bool
     @State private var extendedWarrantyCoverage: String
@@ -73,6 +75,7 @@ struct WarrantyEditView: View {
         _warrantyShowReminder = State(wrappedValue: product.warrantyShowReminder)
         _warrantyReminderID = State(wrappedValue: product.warrantyReminderID ?? "NOID")
         _warrantyCoverage = State(wrappedValue: product.warrantyCoverage ?? "")
+//        _warrantyReminderNotice = State(wrappedValue: product.warrantyReminderNotice ?? "5 days")
                 
         _extendedWarranty = State(wrappedValue: product.extendedWarranty)
         _extendedWarrantyCost = State(wrappedValue: product.extendedWarrantyCost)
@@ -151,13 +154,10 @@ struct WarrantyEditView: View {
                         .font(.caption)
                         .foregroundColor(.gray)
                     
-//                    FormattedTextField("Enter amount",value: productPurchValue, formatter: CurrencyTextFieldFormatter())
-                    
-                    NumberEntryField(value: self.$productPurchValue.onChange(update))
+                    CurrencyTextField("Amount", value: self.$productPurchValue, alwaysShowFractions: true, numberOfDecimalPlaces: 2, currencySymbol: "$")
                         .font(.callout)
                         .keyboardType(.decimalPad)
-                        
-                                            
+
                 }
                 
             }
@@ -238,6 +238,25 @@ struct WarrantyEditView: View {
                         
                 }
                 
+//                HStack {
+//
+//                    Picker("Notice Reminder", selection: $warrantyReminderNotice) {
+//
+//                        ForEach(Products().warrantyReminderNoticeTypes, id: \.self) { notice in
+//
+//                            Text(notice)
+//                                .font(.caption)
+//                                .foregroundColor(.gray)
+//
+//                        }
+//                        .foregroundColor(.gray)
+//
+//                    }
+//                    .pickerStyle(DefaultPickerStyle())
+//                    .font(.footnote)
+//
+//                }
+                
                 Toggle("Add/Remove Reminder", isOn: $warrantyShowReminder.animation())
                     .font(.footnote)
                     .foregroundColor(.gray)
@@ -277,7 +296,7 @@ struct WarrantyEditView: View {
                             .font(.caption)
                             .foregroundColor(.gray)
                         
-                        NumberEntryField(value: self.$extendedWarrantyCost.onChange(update))
+                        CurrencyTextField("Amount", value: self.$extendedWarrantyCost, alwaysShowFractions: true, numberOfDecimalPlaces: 2, currencySymbol: "$")
                             .font(.callout)
                             .keyboardType(.decimalPad)
                                                 
@@ -450,7 +469,7 @@ struct WarrantyEditView: View {
             
         }
         .navigationBarTitle("Edit Warranty", displayMode: .large)
-//        .onDisappear(perform: update)
+        .onDisappear(perform: update)
 
     }
     
@@ -462,7 +481,7 @@ struct WarrantyEditView: View {
         product.productName                = productName
         product.productBrand               = productBrand
         product.retailerName               = retailerName
-        product.productPurchasedValue      = productPurchValue
+        product.productPurchasedValue      = productPurchValue ?? 0.00
         product.productPurchasedDate       = purchaseDate
         product.productSerial              = productSerial
         product.productCategoryImage       = productCategoryImage
@@ -472,14 +491,17 @@ struct WarrantyEditView: View {
         product.warrantyExpiryDate         = warrantyExpiryDate
         product.warrantyShowReminder       = warrantyShowReminder
         product.warrantyCoverage           = warrantyCoverage
+//        product.warrantyReminderNotice     = warrantyReminderNotice
         
         product.extendedWarranty           = extendedWarranty
         product.extendedWarrantyCoverage   = extendedWarrantyCoverage
-        product.extendedWarrantyCost       = extendedWarrantyCost
+        product.extendedWarrantyCost       = extendedWarrantyCost ?? 0.00
         product.extendedWarrantyExpiryDate = extendedWarrantyExpiryDate
         product.extendedShowRemider        = extendedShowReminder
         
         product.comments = comments
+        
+        viewModel.refreshFetch()
         
     }
     
