@@ -104,23 +104,26 @@ struct WarrantiesView: View {
                 .toolbar {
                     
                     ToolbarItemGroup(placement: .navigationBarLeading) {
-
-                        Menu {
+                        
+                        if viewModel.products.count > 0 {
                             
-                            Button("Product Name",         action: { setOrder(key: .sortByProductName) })
-                            Button("Brand Name",           action: { setOrder(key: .sortByBrandName) })
-                            Button("Expiry Date",          action: { setOrder(key: .sortByExpiryDate) })
-                            Button("Extended Expiry Date", action: { setOrder(key: .sortByExtendedExpiryDate) })
-                            
-                        } label: {
+                            Menu {
+                                
+                                Button("Product Name",         action: { setOrder(key: .sortByProductName) })
+                                Button("Brand Name",           action: { setOrder(key: .sortByBrandName) })
+                                Button("Expiry Date",          action: { setOrder(key: .sortByExpiryDate) })
+                                Button("Extended Expiry Date", action: { setOrder(key: .sortByExtendedExpiryDate) })
+                                
+                            } label: {
 
-                            Image(systemName: "arrow.up.arrow.down")
-                                .renderingMode(.template)
-                                .foregroundColor(Color("officialGreen"))
+                                Image(systemName: "arrow.up.arrow.down")
+                                    .renderingMode(.template)
+                                    .foregroundColor(Color("officialGreen"))
+
+                            }
 
                         }
-                        
-                        
+
                     }
                                         
                     ToolbarItemGroup(placement: .navigationBarTrailing) {

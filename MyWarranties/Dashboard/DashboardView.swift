@@ -29,31 +29,40 @@ struct DashboardView: View {
     
     var body: some View {
 
-        ScrollView {
+        if products.wrappedValue.count > 0 {
 
-            VStack {
+            ScrollView {
 
-                VStack(alignment: .center) {
+                VStack {
+
+                    VStack(alignment: .center) {
+                        
+                        Text("Your Warranties Board")
+                            .font(.system(size: 35))
+                            .fontWeight(.bold)
+                            .lineLimit(3)
+
+                        Text("A look into all your items!")
+                            .font(.footnote)
+
+                    }
+                    .padding(.bottom, 20)
                     
-                    Text("Your Warranties Board")
-                        .font(.system(size: 35))
-                        .fontWeight(.bold)
-                        .lineLimit(3)
+                    CardAllItems(cardData: getCard01Data())
 
-                    Text("A look into all your items!")
-                        .font(.footnote)
-
+                    CardExtendedItems(cardData: getCard02Data())
+                    
                 }
-                .padding(.bottom, 20)
-                
-                CardAllItems(cardData: getCard01Data())
+                .padding([.top, .bottom])
 
-                CardExtendedItems(cardData: getCard02Data())
-                
             }
-            .padding([.top, .bottom])
-
+            
+        } else {
+            
+            DashboardNoItemsView()
+            
         }
+        
         
     }
     

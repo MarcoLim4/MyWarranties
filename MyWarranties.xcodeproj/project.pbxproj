@@ -42,6 +42,7 @@
 		DDA4F30426388251009654F9 /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDA4F30326388251009654F9 /* SwiftUIKit */; };
 		DDA4F30726388D1F009654F9 /* DefaultValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F30626388D1F009654F9 /* DefaultValuesView.swift */; };
 		DDA4F30A263891A9009654F9 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F309263891A9009654F9 /* Contants.swift */; };
+		DDA4F30F2638B81E009654F9 /* DashboardNoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F30E2638B81E009654F9 /* DashboardNoItemsView.swift */; };
 		DDBB60A326261F020025B63D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A226261F020025B63D /* SettingsView.swift */; };
 		DDBB60A8262622960025B63D /* WarrantyEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60A7262622960025B63D /* WarrantyEditView.swift */; };
 		DDBB60AC262627A00025B63D /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDBB60AB262627A00025B63D /* DashboardView.swift */; };
@@ -94,6 +95,7 @@
 		DDA1421A262F5DFC0015AF29 /* Categories.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Categories.xcassets; sourceTree = "<group>"; };
 		DDA4F30626388D1F009654F9 /* DefaultValuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultValuesView.swift; sourceTree = "<group>"; };
 		DDA4F309263891A9009654F9 /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
+		DDA4F30E2638B81E009654F9 /* DashboardNoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardNoItemsView.swift; sourceTree = "<group>"; };
 		DDBB608F262607030025B63D /* WarrantyDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WarrantyDB.xcdatamodel; sourceTree = "<group>"; };
 		DDBB60A226261F020025B63D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DDBB60A7262622960025B63D /* WarrantyEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarrantyEditView.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				DDBB60AB262627A00025B63D /* DashboardView.swift */,
 				DDDF56082630AA24007D9E82 /* CardAllItems.swift */,
 				DDDF560B2630AAB9007D9E82 /* CardExtendedItems.swift */,
+				DDA4F30E2638B81E009654F9 /* DashboardNoItemsView.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 				DD16EE07261CD8B200C82408 /* Binding-OnChange.swift in Sources */,
 				DD094A372631F43B001D6B5D /* WarrantiesReminders.swift in Sources */,
 				DDF1692D26385D1F0075503B /* SlideDownToCloseBar.swift in Sources */,
+				DDA4F30F2638B81E009654F9 /* DashboardNoItemsView.swift in Sources */,
 				DD88378E2627BB4700E5361E /* LifeSpanView.swift in Sources */,
 				DD16EE04261CD88D00C82408 /* UIImage+Extension.swift in Sources */,
 				DD3C2EDE262632540069DAF4 /* ImagesAddNew.swift in Sources */,
@@ -535,7 +539,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -559,7 +563,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
