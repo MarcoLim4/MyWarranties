@@ -21,13 +21,13 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCalendarsUsageDescription</key>
-	<string>MyWarranties would like to access user's calendars.</string>
+	<string>The Warranties App would like to access user&apos;s calendars.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>MyWarranties would like to access the camera.</string>
+	<string>The Warranties App  would like to access the camera.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>MyWarranties would like to save images to your photo allbum.</string>
+	<string>The Warranties App  would like to save images to your photo allbum.</string>
 	<key>NSRemindersUsageDescription</key>
-	<string>MyWarranties would like to access user's reminders.</string>
+	<string>The Warranties App  would like to access user&apos;s reminders.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -40,7 +40,12 @@
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchScreen</key>
-	<dict/>
+	<dict>
+		<key>UIColorName</key>
+		<string>launchBackground</string>
+		<key>UIImageName</key>
+		<string>launch-logo</string>
+	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
