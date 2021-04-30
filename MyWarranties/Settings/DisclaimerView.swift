@@ -44,37 +44,61 @@ struct DisclaimerView: View {
                 .foregroundColor(Color("officialGreen"))
                 .padding([.bottom, .top], 20)
 
+            ScrollView {
             
-            VStack(alignment: .leading) {
-            
-                Text("Thank you very much for using The Warranties App.")
-                    .font(.system(size: 16))
-                    .foregroundColor(Color("darkGreen"))
-                    .foregroundColor(Color.white)
-                    .padding()
-
-
-            
-                Text("The App was developed with the intent of helping you keep track of your warranties, setting reminders, adding photos and storing the information Cloud Based so you can see in multiple devices.")
-                    .font(.system(size: 16))
-                    .foregroundColor(Color("darkGreen"))
-                    .foregroundColor(Color.white)
-                    .padding()
+                VStack(alignment: .leading) {
+                
+                    Text("Thank you very much for using The Warranties App.")
+                        .font(.system(size: 16))
+                        .foregroundColor(Color("darkGreen"))
+                        .foregroundColor(Color.white)
+                        .padding([.horizontal, .leading, .trailing, .bottom], 10)
 
 
                 
-                Text("Although The Warranties App DO create Reminders, it is not responsible to warn you about expiring warranties you might have.")
-                    .font(.system(size: 16))
-                    .foregroundColor(Color("darkGreen"))
-                    .foregroundColor(Color.white)
-                    .padding()
+                    Text("The App was developed with the intent of helping you keep track of your warranties, setting reminders, adding photos and storing the information Cloud Based so you can see in multiple devices.")
+                        .font(.system(size: 16))
+                        .foregroundColor(Color("darkGreen"))
+                        .foregroundColor(Color.white)
+                        .padding([.horizontal, .leading, .trailing, .bottom], 10)
 
 
-                
-                Spacer()
-                
+                    
+                    Text("Although The Warranties App DO create Reminders, it is not responsible to warn you about expiring warranties you might have.")
+                        .font(.system(size: 16))
+                        .foregroundColor(Color("darkGreen"))
+                        .foregroundColor(Color.white)
+                        .padding([.horizontal, .leading, .trailing, .bottom], 10)
+
+                    Divider()
+                        .padding()
+
+                    Text("The Warranties App require access to your Camera and Photo Album so you can take pictures of receipts and/or documents related to your warranties.")
+                        .font(.system(size: 16))
+                        .foregroundColor(Color("darkGreen"))
+                        .foregroundColor(Color.white)
+                        .padding([.horizontal, .leading, .trailing, .bottom], 10)
+
+                    Text("Also, The Warranties App require access to your Reminders so you can have alerts when a warranty is close to its expire date.")
+                        .font(.system(size: 16))
+                        .foregroundColor(Color("darkGreen"))
+                        .foregroundColor(Color.white)
+                        .padding([.horizontal, .leading, .trailing, .bottom], 10)
+
+                    Text("You ca change both at any time on the settings for The Warranties App.")
+                        .font(.system(size: 16))
+                        .foregroundColor(Color("darkGreen"))
+                        .foregroundColor(Color.white)
+                        .padding([.horizontal, .leading, .trailing], 10)
+                        .padding(.bottom, 20)
+
+                    
+                    Spacer()
+                    
+                }
+            
             }
-            
+                
         }
         .padding()
         

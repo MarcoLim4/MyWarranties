@@ -23,11 +23,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>The Warranties App would like to access the camera.</string>
+	<string>The Warranties App would like to access the camera to take photos o receipts and/or documents related to you warranties.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>The Warranties App would like to save images to your photo allbum.</string>
+	<string>The Warranties App would like to save images you have taken into your photo allbum.</string>
 	<key>NSRemindersUsageDescription</key>
-	<string>The Warranties App would like to access user's reminders.</string>
+	<string>The Warranties App would like to access user's reminders to add alerts for expiring warranties.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
