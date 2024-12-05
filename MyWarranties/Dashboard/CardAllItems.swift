@@ -9,13 +9,13 @@ struct RegularWarrantyCard {
 }
 
 struct CardAllItems: View {
-    
+
     let cardData: RegularWarrantyCard
-    
+
     var body: some View {
-        
+
         VStack {
-            
+
             Text("Number of Items ")
                 .font(.system(size: 35))
                 .fontWeight(.bold)
@@ -24,34 +24,34 @@ struct CardAllItems: View {
                 .lineLimit(3)
                 .padding([.bottom, .top], 20)
                 .shadow(radius: 15)
-            
-        
+
+
             HStack {
 
                 HStack {
-                    
+
                     Text("\(cardData.productsCount)")
                         .font(.system(size: 30))
                         .fontWeight(.bold)
                         .foregroundColor(Color("darkGreen"))
                         .foregroundColor(Color.white)
-//                        .padding(.horizontal)
-                    
+                    //                        .padding(.horizontal)
+
                     Text(cardData.productsCount > 1 ? "Warranties" : "Warranty")
                         .foregroundColor(Color("darkGreen"))
                         .foregroundColor(Color.white)
 
                 }
                 .padding(.horizontal)
-                
+
                 HStack {
-                    
+
                     Text("\(cardData.productsPhotosCount)")
                         .font(.system(size: 30))
                         .fontWeight(.bold)
                         .foregroundColor(Color("darkGreen"))
                         .foregroundColor(Color.white)
-//                        .padding(.horizontal)
+                    //                        .padding(.horizontal)
 
                     Text(cardData.productsPhotosCount > 1 ? "Images" : "Image")
                         .foregroundColor(Color("darkGreen"))
@@ -60,20 +60,20 @@ struct CardAllItems: View {
                 }
                 .padding(.horizontal)
 
-                
+
             }
-            
-            
+
+
 
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(Color("darkGreen"))
                 .padding(.horizontal)
-            
+
             HStack {
-                
+
                 Spacer()
-                
+
                 VStack(alignment: .center) {
 
 
@@ -90,20 +90,20 @@ struct CardAllItems: View {
 
 
                 }
-                
+
                 Spacer()
 
             }
             .padding(.all, 10)
-//            .background(Color("darkGreen").opacity(0.6))
-            
-            
+            //            .background(Color("darkGreen").opacity(0.6))
+
+
             Rectangle()
                 .frame(height: 1)
                 .foregroundColor(Color("darkGreen"))
                 .padding(.horizontal)
 
-            
+
             Text("Regular Warranty")
                 .font(.system(size: 20))
                 .fontWeight(.bold)
@@ -112,13 +112,13 @@ struct CardAllItems: View {
                 .lineLimit(3)
                 .shadow(radius: 15)
 
-            
+
             HStack {
-                
+
                 Spacer()
-                
+
                 VStack {
-                    
+
                     Image(systemName: "tag")
                         .resizable()
                         .renderingMode(.template)
@@ -132,10 +132,10 @@ struct CardAllItems: View {
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                         .foregroundColor(Color("darkGreen"))
-                    
-//                    Text(cardData.productsValid > 1 ? "Items" : "Item")
-//                        .foregroundColor(Color("darkGreen"))
-                    
+
+                    //                    Text(cardData.productsValid > 1 ? "Items" : "Item")
+                    //                        .foregroundColor(Color("darkGreen"))
+
                     Text("Valid")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
@@ -150,9 +150,9 @@ struct CardAllItems: View {
                 .padding(.top, 10)
 
                 Spacer()
-                
+
                 VStack {
-                    
+
                     Image(systemName: "tag.slash")
                         .resizable()
                         .renderingMode(.template)
@@ -166,10 +166,10 @@ struct CardAllItems: View {
                         .font(.system(size: 20))
                         .fontWeight(.bold)
                         .foregroundColor(Color("darkGreen"))
-                    
-//                    Text(cardData.productsExpired > 1 ? "Items" : "Item")
-//                        .foregroundColor(Color("darkGreen"))
-                    
+
+                    //                    Text(cardData.productsExpired > 1 ? "Items" : "Item")
+                    //                        .foregroundColor(Color("darkGreen"))
+
                     Text("Expired")
                         .font(.system(size: 20))
                         .fontWeight(.bold)
@@ -184,19 +184,19 @@ struct CardAllItems: View {
                 .padding(.top, 10)
 
                 Spacer()
-                
+
             }
             .padding([.bottom, .horizontal], 10)
             .padding(.top, 0)
 
-            
+
         }
         .clipShape(Rectangle())
         .background(Color("officialGreen").opacity(0.5))
         .cornerRadius(20)
         .padding([.horizontal], 10)
 
-        
+
     }
 }
 
@@ -208,14 +208,14 @@ struct CardAllItems_Previews: PreviewProvider {
                                                        productsPhotosCount: 2,
                                                        productsValid: 1,
                                                        productsExpired: 2))
-                .preferredColorScheme(.light)
+            .preferredColorScheme(.light)
             CardAllItems(cardData: RegularWarrantyCard(productsCount: 2,
                                                        productsSum: 6000.00,
                                                        productsPhotosCount: 12,
                                                        productsValid: 5,
                                                        productsExpired: 0))
-                .preferredColorScheme(.dark)
+            .preferredColorScheme(.dark)
         }
-            
+
     }
 }

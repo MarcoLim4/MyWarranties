@@ -3,7 +3,7 @@ import SwiftUI
 struct ImagesShowImageView: View {
 
     let photo: Photos
-    
+
     @State var lastScaleValue: CGFloat = 1.0
 
     @Environment(\.managedObjectContext) var managedObjectContext
@@ -25,7 +25,7 @@ struct ImagesShowImageView: View {
         VStack {
 
             VStack(alignment: .trailing) {
-                
+
                 Button("Close") {
                     withAnimation {
                         self.presentation.wrappedValue.dismiss()
@@ -43,7 +43,7 @@ struct ImagesShowImageView: View {
             let instPhoto = UIImage(data: photo.itemPhoto ?? Data()) ?? UIImage(named: "image05.png")
 
             Spacer()
-            
+
             Image(uiImage: instPhoto ?? UIImage())
                 .resizable()
                 .aspectRatio(contentMode: .fit)
@@ -73,7 +73,7 @@ struct ImagesShowImageView: View {
                     title: Text("Delete Photo?"),
                     message: Text("Deleting the photo, removes the photo only from your warranties database!"),
                     primaryButton: .destructive(Text("Yes, delete it!")) {
-
+                        
                         dataController.delete(photo)
                         self.presentation.wrappedValue.dismiss()
 

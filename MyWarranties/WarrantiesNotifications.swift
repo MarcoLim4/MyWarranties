@@ -14,31 +14,31 @@ struct WarrantiesNotifications {
     func addReminders(for product: Products, completion: @escaping (Bool) -> Void) {
         
         let center = UNUserNotificationCenter.current()
-
-            center.getNotificationSettings { settings in
-                switch settings.authorizationStatus {
-                case .notDetermined:
-                    
-                    self.requestNotifications { success in
-                        if success {
-                            self.placeReminders(for: product, completion: completion)
-                        } else {
-                            DispatchQueue.main.async {
-                                completion(false)
-                            }
+        
+        center.getNotificationSettings { settings in
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                
+                self.requestNotifications { success in
+                    if success {
+                        self.placeReminders(for: product, completion: completion)
+                    } else {
+                        DispatchQueue.main.async {
+                            completion(false)
                         }
                     }
-                    
-                case .authorized:
-                    self.placeReminders(for: product, completion: completion)
-                default:
-                    DispatchQueue.main.async {
-                        completion(false)
-                    }
+                }
+                
+            case .authorized:
+                self.placeReminders(for: product, completion: completion)
+            default:
+                DispatchQueue.main.async {
+                    completion(false)
                 }
             }
+        }
     }
-
+    
     func removeReminders(for product: Products) {
         
         let center = UNUserNotificationCenter.current()
@@ -46,17 +46,17 @@ struct WarrantiesNotifications {
         center.removePendingNotificationRequests(withIdentifiers: [id])
         
     }
-
+    
     private func requestNotifications(completion: @escaping (Bool) -> Void) {
         
         let center = UNUserNotificationCenter.current()
-
+        
         center.requestAuthorization(options: [.alert, .sound, .badge,]) { granted, _ in
-                completion(granted)
+            completion(granted)
         }
         
     }
-
+    
     private func placeReminders(for product: Products, completion: @escaping (Bool) -> Void) {
         
         let content = UNMutableNotificationContent()

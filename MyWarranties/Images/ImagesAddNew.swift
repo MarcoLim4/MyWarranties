@@ -15,7 +15,7 @@ struct ImagesAddNew: View {
                 .scaledToFit()
 
             Button("Select Image") {
-                self.showingImagePicker = true                
+                self.showingImagePicker = true
             }
 
         }

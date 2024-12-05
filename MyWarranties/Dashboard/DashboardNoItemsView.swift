@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DashboardNoItemsView: View {
     var body: some View {
-        
+
         VStack {
-            
+
             VStack {
 
                 Text("The Warranties App")
@@ -20,21 +20,21 @@ struct DashboardNoItemsView: View {
                     .foregroundColor(Color("darkGreen"))
                     .padding([.bottom, .top], 20)
 
-                
+
             }
-            
+
             Image("launch-logo")
                 .resizable()
-//                .renderingMode(.template)
-//                .foregroundColor(Color("darkGreen"))
+            //                .renderingMode(.template)
+            //                .foregroundColor(Color("darkGreen"))
                 .frame(width: 200, height: 200)
                 .padding()
                 .cornerRadius(10)
-//                .overlay(Circle()
-//                            .stroke(Color("officialGreen"), lineWidth: 2))
+            //                .overlay(Circle()
+            //                            .stroke(Color("officialGreen"), lineWidth: 2))
                 .shadow(radius: 10)
-
             
+
             Text("There are no items yet in the database. To start adding, please go to the 'Warranties' tab.")
                 .font(.system(size: 22))
                 .multilineTextAlignment(.center)
@@ -42,7 +42,7 @@ struct DashboardNoItemsView: View {
                 .foregroundColor(Color.white)
                 .padding()
 
-            
+
         }
         .padding()
         .clipShape(Rectangle())
@@ -51,7 +51,7 @@ struct DashboardNoItemsView: View {
         .padding([.horizontal], 10)
 
 
-        
+
     }
 }
 

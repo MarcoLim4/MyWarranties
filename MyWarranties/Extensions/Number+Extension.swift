@@ -29,9 +29,9 @@ extension Double {
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-
+        
         let sumFormatted =  formatter.string(from: NSNumber(value: self)) ?? "$0"
-
+        
         return sumFormatted
         
     }

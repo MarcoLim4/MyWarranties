@@ -10,7 +10,7 @@ struct ExtendedWarrantyCard {
 struct CardExtendedItems: View {
     
     let cardData: ExtendedWarrantyCard
-        
+    
     var body: some View {
         
         VStack {
@@ -23,13 +23,13 @@ struct CardExtendedItems: View {
                 .padding([.bottom, .top], 20)
             
             VStack {
-
+                
                 HStack {
                     
                     Spacer()
                     
                     VStack(alignment: .center) {
-
+                        
                         Text("\(cardData.itemsCount)")
                             .font(.system(size: 30))
                             .fontWeight(.bold)
@@ -46,29 +46,29 @@ struct CardExtendedItems: View {
                     Spacer()
                     
                     VStack(alignment: .center) {
-
-
+                        
+                        
                         Text("\(cardData.itemsSum.stringValue())")
                             .font(.system(size: 30))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
-
+                        
                         Text("Extended Warranties")
                             .foregroundColor(Color("darkGreen"))
                             .textCase(.none)
-
-
+                        
+                        
                     }
                     
                     Spacer()
-
+                    
                 }
                 .frame(maxWidth: .infinity)
                 .background(Color("officialGreen").opacity(0.6))
                 .clipShape(Rectangle())
                 .cornerRadius(10)
                 .padding([.horizontal], 20)
-
+                
                 HStack {
                     
                     Spacer()
@@ -83,28 +83,28 @@ struct CardExtendedItems: View {
                             .padding(.top, 10)
                             .padding(.bottom, 0)
                             .padding(.horizontal)
-
+                        
                         Text("\(cardData.itemsValid)")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
                         
-//                        Text(cardData.itemsValid > 1 ? "Items" : "Item")
-//                            .foregroundColor(Color("darkGreen"))
+                        //                        Text(cardData.itemsValid > 1 ? "Items" : "Item")
+                        //                            .foregroundColor(Color("darkGreen"))
                         
                         Text("Valid")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
                             .padding(.bottom, 10)
-
+                        
                     }
                     .frame(maxWidth: .infinity)
                     .background(Color("officialGreen").opacity(0.6))
                     .clipShape(Rectangle())
                     .cornerRadius(10)
                     .padding(.top, 10)
-
+                    
                     Spacer()
                     
                     VStack {
@@ -117,35 +117,35 @@ struct CardExtendedItems: View {
                             .padding(.top, 10)
                             .padding(.bottom, 0)
                             .padding(.horizontal)
-
+                        
                         Text("\(cardData.itemsExpired)")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
                         
-//                        Text(cardData.itemsExpired > 1 ? "Items" : "Item")
-//                            .foregroundColor(Color("darkGreen"))
+                        //                        Text(cardData.itemsExpired > 1 ? "Items" : "Item")
+                        //                            .foregroundColor(Color("darkGreen"))
                         
                         Text("Expired")
                             .font(.system(size: 20))
                             .fontWeight(.bold)
                             .foregroundColor(Color("darkGreen"))
                             .padding(.bottom, 10)
-
+                        
                     }
                     .frame(maxWidth: .infinity)
                     .background(Color("officialGreen").opacity(0.6))
                     .clipShape(Rectangle())
                     .cornerRadius(10)
                     .padding(.top, 10)
-
+                    
                     Spacer()
                     
                 }
                 .padding([.bottom, .horizontal], 10)
                 .padding(.top, 0)
-
-
+                
+                
             }
             
             Spacer()

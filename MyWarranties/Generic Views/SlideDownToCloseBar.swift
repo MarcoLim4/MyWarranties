@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct SlideDownToCloseBar: View {
-    
+
     var body: some View {
-        
+
         VStack(alignment: .center) {
             Rectangle()
                 .frame(width: 130, height: 5)
@@ -16,7 +16,7 @@ struct SlideDownToCloseBar: View {
         }
         .padding(.zero)
 
-        
+
     }
 }
 

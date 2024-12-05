@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct ContentView: View {
-  
+
     @SceneStorage("selectedView") var selectedView: String?
     @EnvironmentObject var dataController: DataController
     @Environment(\.colorScheme) var colorScheme
-    
+
     var body: some View {
 
         TabView(selection: $selectedView) {
-            
+
             DashboardView()
                 .tag(DashboardView.tag)
                 .tabItem {
@@ -21,7 +21,7 @@ struct ContentView: View {
 
             WarrantiesView(dataController: dataController)
                 .tag(WarrantiesView.tag)
-                .tabItem {                    
+                .tabItem {
                     Image("shield")
                         .renderingMode(.template)
                         .foregroundColor(Color("fontTitle"))
@@ -39,25 +39,12 @@ struct ContentView: View {
                     Text("Settings")
                 }
 
-            
+
         }
         .accentColor(Color("officialGreen"))
 
     }
-    
-    
-//    var body: some View {
-//
-//        NavigationView{
-//
-//            CustomTabView()
-//                .navigationTitle("")
-//                .navigationBarTitleDisplayMode(.inline)
-//                .navigationBarHidden(true)
-//        }
-//
-//    }
-//
+
 }
 
 struct ContentView_Previews: PreviewProvider {

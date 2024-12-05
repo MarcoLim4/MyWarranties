@@ -2,14 +2,12 @@ import SwiftUI
 import CoreData
 
 struct DashboardView: View {
-        
+
+    //    @EnvironmentObject var dataController: DataController
+
     static let tag: String? = "Dashboard"
-    
-//    @EnvironmentObject var dataController: DataController
-    
     let products : FetchRequest<Products>
     let extended : FetchRequest<Products>
-
     let photos   : FetchRequest<Photos>
 
     init() {
@@ -26,7 +24,7 @@ struct DashboardView: View {
         photos = FetchRequest(fetchRequest: requestImages)
 
     }
-    
+
     var body: some View {
 
         if products.wrappedValue.count > 0 {
@@ -36,7 +34,7 @@ struct DashboardView: View {
                 VStack {
 
                     VStack(alignment: .center) {
-                        
+
                         Text("Your Warranties Board")
                             .font(.system(size: 35))
                             .fontWeight(.bold)
@@ -47,32 +45,32 @@ struct DashboardView: View {
 
                     }
                     .padding(.bottom, 20)
-                    
+
                     CardAllItems(cardData: getCard01Data())
 
                     CardExtendedItems(cardData: getCard02Data())
-                    
+
                 }
                 .padding([.top, .bottom])
 
             }
-            
+
         } else {
-            
+
             DashboardNoItemsView()
-            
+
         }
-        
-        
+
+
     }
-    
+
     func getCard01Data() -> RegularWarrantyCard {
 
         let totalItems  = products.wrappedValue.count
         let sum         = products.wrappedValue.reduce(0) { $0 + ($1.value(forKey: "productPurchasedValue") as? Double ?? 0) }
         let totalPhotos = photos.wrappedValue.count
 
-        
+
         let extendedValidItems = products.wrappedValue.filter { $0.warrantyExpiryDate != nil }
         let validTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() >=  Date() }.count
         let expirTotalRecords  = extendedValidItems.filter { $0.warrantyExpiryDate ?? Date() < Date() }.count
@@ -90,7 +88,7 @@ struct DashboardView: View {
         let totalItems = extended.wrappedValue.count
         let sum        = extended.wrappedValue.reduce(0) { $0 + ($1.value(forKey: "extendedWarrantyCost") as? Double ?? 0) }
 
-        
+
         let extendedValidItems = extended.wrappedValue.filter { $0.extendedWarrantyExpiryDate != nil }
         let validTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() >=  Date() }.count
         let expirTotalRecords  = extendedValidItems.filter { $0.extendedWarrantyExpiryDate ?? Date() < Date() }.count
@@ -100,7 +98,7 @@ struct DashboardView: View {
 
         return viewData
     }
-        
+
 }
 
 struct DashboardView_Previews: PreviewProvider {

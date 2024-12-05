@@ -11,11 +11,11 @@ struct RemindersToolView: View {
     let products : FetchRequest<Products>
     
     init() {
-
+        
         let request: NSFetchRequest<Products> = Products.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Products.productName, ascending: false)]
         products = FetchRequest(fetchRequest: request)
-    
+        
     }
     
     
@@ -39,7 +39,7 @@ struct RemindersToolView: View {
                        alignment: .trailing)
                 .padding(.trailing, 15)
                 .foregroundColor(Color("darkGreen"))
-
+                
             }
             
             Image(systemName: "calendar.badge.minus")
@@ -50,7 +50,7 @@ struct RemindersToolView: View {
                 .padding(.all, 10)
                 .cornerRadius(10)
                 .overlay(Circle()
-                            .stroke(Color("officialGreen"), lineWidth: 2))
+                    .stroke(Color("officialGreen"), lineWidth: 2))
                 .shadow(radius: 10)
             
             Text("Reminders Tool")
@@ -60,21 +60,21 @@ struct RemindersToolView: View {
                 .padding([.bottom, .top], 20)
             
             VStack(alignment: .leading) {
-            
-            
+                
+                
                 Text("By executing this option, the Application will iterate through the database and remove all the Reminders that were created.")
                     .font(.system(size: 16))
                     .foregroundColor(Color("darkGreen"))
                     .foregroundColor(Color.white)
                     .padding([.leading, .trailing, .horizontal])
-
+                
                 Text("It will uncheck the 'Add/Remove Reminder' for both normal and extended waranties and also, try to find the items in the Reminders App and remove them.")
                     .font(.system(size: 16))
                     .foregroundColor(Color("darkGreen"))
                     .foregroundColor(Color.white)
                     .padding()
-
-
+                
+                
                 Button(action: {
                     isShowingDeleteMessage.toggle()
                 }) {
@@ -93,26 +93,26 @@ struct RemindersToolView: View {
                 .cornerRadius(10.0)
                 .shadow(radius: 5)
                 .padding([.leading, .trailing, .top], 15)
-
+                
                 .alert(isPresented: $isShowingDeleteMessage) {
-
+                    
                     Alert(
                         title: Text("Are you sure?"),
                         message: Text("By executing this option, the Application will iterate through the database and remove all the Reminders that were created."),
                         primaryButton: .destructive(Text("Please, go ahead!")) {
-
+                            
                             self.deleteAllReminders()
                             dataController.save()                            
                             self.presentation.wrappedValue.dismiss()
-
+                            
                         },
                         secondaryButton: .cancel()
                     )
-
-
+                    
+                    
                 }
-
-
+                
+                
                 
                 Spacer()
                 
@@ -137,7 +137,7 @@ struct RemindersToolView: View {
                 }
                 
             }
-
+            
             if let extendedReminder = product.extendedReminderID {
                 
                 product.extendedReminderID   = ""
@@ -148,7 +148,7 @@ struct RemindersToolView: View {
                 }
                 
             }
-
+            
             
         }
         

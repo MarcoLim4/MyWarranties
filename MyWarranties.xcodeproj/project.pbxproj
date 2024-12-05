@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,7 +39,6 @@
 		DDA14218262F43750015AF29 /* Icons01.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA14217262F43750015AF29 /* Icons01.xcassets */; };
 		DDA1421B262F5DFC0015AF29 /* Categories.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDA1421A262F5DFC0015AF29 /* Categories.xcassets */; };
 		DDA14220262F62240015AF29 /* WarrantyDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDBB608E262607030025B63D /* WarrantyDB.xcdatamodeld */; };
-		DDA4F30426388251009654F9 /* SwiftUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDA4F30326388251009654F9 /* SwiftUIKit */; };
 		DDA4F30726388D1F009654F9 /* DefaultValuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F30626388D1F009654F9 /* DefaultValuesView.swift */; };
 		DDA4F30A263891A9009654F9 /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F309263891A9009654F9 /* Contants.swift */; };
 		DDA4F30F2638B81E009654F9 /* DashboardNoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA4F30E2638B81E009654F9 /* DashboardNoItemsView.swift */; };
@@ -57,6 +56,7 @@
 		DDED6C892625FC8700B3BC9D /* Products+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDED6C882625FC8700B3BC9D /* Products+CoreData.swift */; };
 		DDED6C912626009500B3BC9D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDED6C902626009500B3BC9D /* CloudKit.framework */; };
 		DDF1692D26385D1F0075503B /* SlideDownToCloseBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF1692C26385D1F0075503B /* SlideDownToCloseBar.swift */; };
+		DDF20CD92B606F91001A0C00 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF20CD82B606F91001A0C00 /* CurrencyTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +112,7 @@
 		DDED6C8D2626008600B3BC9D /* MyWarranties.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyWarranties.entitlements; sourceTree = "<group>"; };
 		DDED6C902626009500B3BC9D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DDF1692C26385D1F0075503B /* SlideDownToCloseBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideDownToCloseBar.swift; sourceTree = "<group>"; };
+		DDF20CD82B606F91001A0C00 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +121,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDED6C912626009500B3BC9D /* CloudKit.framework in Frameworks */,
-				DDA4F30426388251009654F9 /* SwiftUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +211,7 @@
 			children = (
 				DD3C2EE526263C760069DAF4 /* DateHelper.swift */,
 				DDA4F309263891A9009654F9 /* Contants.swift */,
+				DDF20CD82B606F91001A0C00 /* CurrencyTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -306,7 +307,6 @@
 			);
 			name = MyWarranties;
 			packageProductDependencies = (
-				DDA4F30326388251009654F9 /* SwiftUIKit */,
 			);
 			productName = MyWarranties;
 			productReference = DD16EDEF261CD81800C82408 /* MyWarranties.app */;
@@ -318,8 +318,9 @@
 		DD16EDE7261CD81800C82408 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1240;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1520;
 				TargetAttributes = {
 					DD16EDEE261CD81800C82408 = {
 						CreatedOnToolsVersion = 12.4;
@@ -336,7 +337,6 @@
 			);
 			mainGroup = DD16EDE6261CD81800C82408;
 			packageReferences = (
-				DDA4F30226388251009654F9 /* XCRemoteSwiftPackageReference "SwiftUIKit" */,
 			);
 			productRefGroup = DD16EDF0261CD81800C82408 /* Products */;
 			projectDirPath = "";
@@ -371,6 +371,7 @@
 				DD16EE07261CD8B200C82408 /* Binding-OnChange.swift in Sources */,
 				DD094A372631F43B001D6B5D /* WarrantiesReminders.swift in Sources */,
 				DDF1692D26385D1F0075503B /* SlideDownToCloseBar.swift in Sources */,
+				DDF20CD92B606F91001A0C00 /* CurrencyTextField.swift in Sources */,
 				DDA4F30F2638B81E009654F9 /* DashboardNoItemsView.swift in Sources */,
 				DD88378E2627BB4700E5361E /* LifeSpanView.swift in Sources */,
 				DD16EE04261CD88D00C82408 /* UIImage+Extension.swift in Sources */,
@@ -453,6 +454,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -514,6 +516,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -539,7 +542,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 01;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -549,8 +552,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = LIM4.MyWarranties;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -563,7 +571,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MyWarranties/MyWarranties.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 01;
 				DEVELOPMENT_ASSET_PATHS = "\"MyWarranties/Preview Content\"";
 				DEVELOPMENT_TEAM = QFLL3M3T6A;
 				ENABLE_PREVIEWS = YES;
@@ -573,8 +581,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = LIM4.MyWarranties;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -602,25 +615,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DDA4F30226388251009654F9 /* XCRemoteSwiftPackageReference "SwiftUIKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/youjinp/SwiftUIKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.15;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DDA4F30326388251009654F9 /* SwiftUIKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDA4F30226388251009654F9 /* XCRemoteSwiftPackageReference "SwiftUIKit" */;
-			productName = SwiftUIKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		DDBB608E262607030025B63D /* WarrantyDB.xcdatamodeld */ = {

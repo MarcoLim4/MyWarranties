@@ -5,7 +5,7 @@ struct NumberEntryField : View {
     
     @State private var enteredValue: String = ""
     @Binding var value: Double
-
+    
     var body: some View {
         
         return TextField("", text: $enteredValue)

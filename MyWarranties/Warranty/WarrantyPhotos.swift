@@ -2,16 +2,16 @@ import SwiftUI
 
 struct WarrantyPhotos: View {
 
-    
+
     let layout = [GridItem(.flexible(minimum : 80))]
     @State private var showingImageView = false
-    
+
     let thePhotos: [Photos]
-    
+
     @State private var selectedIndex = 0
-    
+
     var body: some View {
-        
+
         ScrollView(.horizontal) {
 
             LazyHGrid(rows: layout, spacing: 20) {
@@ -19,9 +19,9 @@ struct WarrantyPhotos: View {
                 ForEach(Array(thePhotos.enumerated()), id: \.offset) { index, photoItem in
 
                     let instPhoto = UIImage(data: photoItem.itemPhoto ?? Data()) ?? UIImage(named: "image05.png")
-                    
+
                     ZStack(alignment: .center) {
-                        
+
                         Image(uiImage: instPhoto ?? UIImage())
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -51,10 +51,10 @@ struct WarrantyPhotos: View {
             .padding(.horizontal)
 
         }
-        
+
     }
 
-    
+
 }
 
 struct WarrantyPhotos_Previews: PreviewProvider {

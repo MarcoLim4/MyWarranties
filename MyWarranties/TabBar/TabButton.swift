@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct TabButton: View {
-    
+
     var title: String
     var image: String
-    
+
     @Binding var selected : String
-    
+
     var body: some View {
-        
+
         Button(action: {
             withAnimation(.spring()) { selected = title }
         }) {
-            
+
             HStack(spacing: 10) {
 
                 Image(image)
@@ -44,24 +44,24 @@ struct TabButton: View {
 }
 
 struct TabButton2 : View {
-    
+
     var title : String
     var image : String
-    
+
     @Binding var selectedTab : String
-    
+
     var body: some View {
 
         Button(action: {
             withAnimation(.spring()) { selectedTab = title }
         }) {
-            
+
             HStack(spacing: 10) {
 
-            Image(image)
-                .renderingMode(.template)
-//                .frame(width: 23, height: 23)
-                .foregroundColor(.white)
+                Image(image)
+                    .renderingMode(.template)
+                //                .frame(width: 23, height: 23)
+                    .foregroundColor(.white)
 
                 if selectedTab == title {
 
@@ -79,7 +79,7 @@ struct TabButton2 : View {
             .clipShape(Rectangle())
             .cornerRadius(10)
 
-            
+
         }
 
     }
